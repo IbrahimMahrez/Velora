@@ -1,11 +1,20 @@
 # Velora Backend 💰
 
-Velora is a SaaS platform for personal finance and life management that helps users manage subscriptions, bills, expenses, installments, savings goals, and payments in one place.
+Velora is a complete SaaS platform for personal finance and life management that helps users manage subscriptions, bills, installments, expenses, savings goals, and payments in one place.
 
-The platform aims to simplify financial management and provide users with smart tools to track their spending and organize their lives.
+The platform combines a premium user experience with smart financial tools to help users understand where their money goes, organize their finances, and avoid missing recurring payments.
+
+Velora is designed to be more than a finance app — it is a complete financial hub.
 
 ---
+## ✨ Overview
 
+Velora is a complete SaaS platform for personal finance management that allows users to manage subscriptions, expenses, bills, installments, financial goals, and premium memberships through an integrated payment system.
+
+The platform provides smart analytics, automated reminders, and multiple pricing plans designed for individuals and families.
+
+
+---
 # 🚀 Features
 
 ## Authentication & Authorization
@@ -24,10 +33,10 @@ The platform aims to simplify financial management and provide users with smart 
 
 ## User Management
 
-- User Profile
-- User Plans (Free / Premium / Family)
-- Occupation Selection
+- User Profiles
 - Avatar Upload
+- Occupation Selection
+- Account Verification
 
 ---
 
@@ -39,7 +48,7 @@ Users can:
 - Update subscriptions
 - Delete subscriptions
 - Track renewal dates
-- Manage reminder settings
+- Manage reminders
 
 Examples:
 
@@ -56,7 +65,7 @@ Examples:
 Users can:
 
 - Add bills
-- Upload bill images
+- Upload bill images and receipts
 - Update bills
 - Delete bills
 - Track due dates
@@ -64,11 +73,11 @@ Users can:
 
 Examples:
 
-- Electricity
-- Water
-- Gas
-- Internet
-- Mobile Bills
+- Electricity Bills
+- Water Bills
+- Gas Bills
+- Internet Bills
+- Mobile Plans
 
 ---
 
@@ -77,9 +86,9 @@ Examples:
 Users can:
 
 - Add expenses
-- Categorize expenses
-- Analyze spending habits
-- View monthly reports
+- Categorize spending
+- Analyze habits
+- View reports and statistics
 
 ---
 
@@ -88,8 +97,8 @@ Users can:
 Users can:
 
 - Track installment plans
-- Calculate remaining amount
 - Monitor payment dates
+- Calculate remaining amounts
 - Manage monthly payments
 
 ---
@@ -98,10 +107,10 @@ Users can:
 
 Users can:
 
-- Create goals
+- Create savings goals
 - Track progress
 - Update savings
-- Mark goals as completed
+- Complete goals
 
 ---
 
@@ -116,41 +125,58 @@ Automatic notifications for:
 
 ---
 
-## Dashboard 📊
+## Dashboard & Analytics 📊
 
 Dashboard provides:
 
-- Total monthly expenses
+- Monthly spending overview
 - Active subscriptions
 - Upcoming bills
-- Installments overview
+- Installments tracker
 - Goals progress
 - Notifications summary
+- Financial analytics
 
 ---
 
-## Payment System 💳
+## Payment Gateway Integration 💳
 
-Supported plans:
+Integrated payment system for upgrading plans and managing memberships.
+
+Features:
+
+- Secure payment processing
+- Subscription upgrades
+- Payment history
+- Membership activation
+- Premium access management
+
+---
+
+# 💎 Membership Plans
 
 ### Free Plan
 
 - Up to 5 subscriptions
 - Basic analytics
 - Limited reminders
+- Standard support
 
-### Premium Plan
+### Premium Plan — 150 EGP / Month
 
 - Unlimited subscriptions
 - Advanced analytics
+- Unlimited reminders
 - Smart insights
 - Priority support
 
-### Family Plan
+### Family Plan — 200 EGP / Month
 
-- Family accounts
-- Shared subscriptions
-- Advanced features
+- Shared family accounts
+- Family subscription management
+- Premium analytics
+- Exclusive features
+- VIP support
 
 ---
 
@@ -158,9 +184,9 @@ Supported plans:
 
 Users can upload:
 
-- Bill images
+- Bills
 - Receipts
-- Profile avatars
+- Profile images
 
 ---
 
@@ -180,7 +206,8 @@ Implemented using Nodemailer:
 - Password Hashing
 - Helmet
 - CORS
-- Validation with Joi
+- Joi Validation
+- Protected APIs
 
 ---
 
@@ -224,9 +251,13 @@ Implemented on:
 
 - Nodemailer
 
-## Scheduled Jobs
+## Scheduling
 
 - Node Cron
+
+## Payments
+
+- Payment Gateway Integration
 
 ---
 
@@ -264,6 +295,8 @@ JWT_SECRET=
 EMAIL=
 
 EMAIL_PASSWORD=
+
+PAYMENT_API_KEY=
 ```
 
 ---
@@ -273,7 +306,7 @@ EMAIL_PASSWORD=
 Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/velora-backend.git
+git clone https://github.com/IbrahimMahrez/velora-backend.git
 ```
 
 Install dependencies:
@@ -308,18 +341,17 @@ npm run dev
 # 🔮 Future Features
 
 - React Frontend
-- React Native Mobile App
+- React Native Application
 - AI Financial Assistant
 - PDF Reports
 - Cloudinary Integration
 - Advanced Analytics
+- Family Sharing
 
 ---
 
 # 👨‍💻 Author
 
-Developed by Ibrahim Mahrez.
+Developed by **Ibrahim Mahrez**
 
-Faculty of Science — Software Industry and Multimedia Department.
-
-Alexandria University.
+**Full Stack Developer**
