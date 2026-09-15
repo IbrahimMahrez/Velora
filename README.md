@@ -1,357 +1,621 @@
-# Velora Backend 💰
+# Velora — Smart Financial Space
 
-Velora is a complete SaaS platform for personal finance and life management that helps users manage subscriptions, bills, installments, expenses, savings goals, and payments in one place.
+> **Read in Arabic:** [README.ar.md](./README.ar.md)
 
-The platform combines a premium user experience with smart financial tools to help users understand where their money goes, organize their finances, and avoid missing recurring payments.
+Velora is a full-featured **personal finance management platform** built with the **MERN stack**. It brings expenses, bills, subscriptions, installments, savings goals, budgets, family finances, AI-powered insights, and payments into one unified bilingual workspace.
 
-Velora is designed to be more than a finance app — it is a complete financial hub.
-
----
-## ✨ Overview
-
-Velora is a complete SaaS platform for personal finance management that allows users to manage subscriptions, expenses, bills, installments, financial goals, and premium memberships through an integrated payment system.
-
-The platform provides smart analytics, automated reminders, and multiple pricing plans designed for individuals and families.
-
-
----
-# 🚀 Features
-
-## Authentication & Authorization
-
-- User Registration
-- User Login
-- Logout
-- Forgot Password
-- Reset Password
-- JWT Authentication
-- Role-Based Authorization
-- Protected Routes
-- Email Verification
+Velora supports **Arabic and English**, **light and dark themes**, **offline-first functionality**, and **Progressive Web App (PWA)** installation.
 
 ---
 
-## User Management
+## ✨ Features
 
-- User Profiles
-- Avatar Upload
-- Occupation Selection
-- Account Verification
+### 📊 Dashboard
 
----
+* Comprehensive financial overview
+* Financial statistics and summary cards
+* Recent expenses
+* Upcoming bills
+* **6-month expense trend chart**
+* Notification center with:
 
-## Subscription Management
-
-Users can:
-
-- Add subscriptions
-- Update subscriptions
-- Delete subscriptions
-- Track renewal dates
-- Manage reminders
-
-Examples:
-
-- Netflix
-- Spotify
-- Gym Membership
-- Internet Services
-- Educational Platforms
+  * Read notifications
+  * Delete individual notifications
+  * Delete all notifications
+  * Mark all as read
+* AI assistant banner
+* Current subscription plan badge
+* Browser notification activation
+* **Onboarding wizard** for new users
 
 ---
 
-## Bills Management
+### 💸 Expenses
 
-Users can:
+* Create, edit, and delete expenses
+* 7 expense categories
+* Search and filtering
+* **AI-powered automatic categorization**
 
-- Add bills
-- Upload bill images and receipts
-- Update bills
-- Delete bills
-- Track due dates
-- Filter bills by status
-
-Examples:
-
-- Electricity Bills
-- Water Bills
-- Gas Bills
-- Internet Bills
-- Mobile Plans
+  * Example: entering `"Koshary"` can suggest `"Food"`
+* CSV export with Arabic/Excel compatibility
+* Offline operation support
 
 ---
 
-## Expense Tracking
+### 🧾 Bills
 
-Users can:
+* Complete bill management
+* Bill statuses:
 
-- Add expenses
-- Categorize spending
-- Analyze habits
-- View reports and statistics
+  * Paid
+  * Pending
+  * Overdue
+* Due-date tracking
+* **Bill image upload**
 
----
+  * Image preview
+  * Maximum size: 8 MB
+  * JPG, PNG, WebP, GIF, and HEIC support
+* **AI-powered receipt scanning**
 
-## Installments Management
-
-Users can:
-
-- Track installment plans
-- Monitor payment dates
-- Calculate remaining amounts
-- Manage monthly payments
-
----
-
-## Financial Goals
-
-Users can:
-
-- Create savings goals
-- Track progress
-- Update savings
-- Complete goals
+  * Upload or capture a bill image
+  * Automatically extract information and populate the form
+* CSV export
+* Payment reminders
 
 ---
 
-## Notifications System 🔔
+### 🔁 Subscriptions
 
-Automatic notifications for:
+* Complete subscription management
+* Renewal cycles and renewal dates
+* **Automatic expense posting**
 
-- Subscription renewals
-- Bill due dates
-- Installment payments
-- Monthly summaries
+  * Renewals can automatically create expenses
+  * Automatically calculates the next renewal date
+  * Can be enabled or disabled per subscription
+* **"Mark as Used"** action
+* **Abandoned subscription detection**
 
----
-
-## Dashboard & Analytics 📊
-
-Dashboard provides:
-
-- Monthly spending overview
-- Active subscriptions
-- Upcoming bills
-- Installments tracker
-- Goals progress
-- Notifications summary
-- Financial analytics
+  * Automatic notifications for subscriptions unused for 60+ days
+* CSV export
 
 ---
 
-## Payment Gateway Integration 💳
+### 📦 Installments
 
-Integrated payment system for upgrading plans and managing memberships.
-
-Features:
-
-- Secure payment processing
-- Subscription upgrades
-- Payment history
-- Membership activation
-- Premium access management
+* Installment management
+* Payment schedules
+* Remaining amount tracking
+* Progress percentages
+* Installment status tracking
 
 ---
 
-# 💎 Membership Plans
+### 🎯 Savings Goals
 
-### Free Plan
+* Create and manage savings goals
+* Track progress toward each goal
+* **Quick contributions**
 
-- Up to 5 subscriptions
-- Basic analytics
-- Limited reminders
-- Standard support
-
-### Premium Plan — 150 EGP / Month
-
-- Unlimited subscriptions
-- Advanced analytics
-- Unlimited reminders
-- Smart insights
-- Priority support
-
-### Family Plan — 200 EGP / Month
-
-- Shared family accounts
-- Family subscription management
-- Premium analytics
-- Exclusive features
-- VIP support
+  * Add a predefined amount with one click
+  * Contribution history
+* Automatic goal completion when the target is reached
 
 ---
 
-## File Upload 📁
+### 💰 Budgets
 
-Users can upload:
+* Monthly budgets
+* Budget limits per category
+* Visual progress indicators
+* Automatic alerts at:
 
-- Bills
-- Receipts
-- Profile images
-
----
-
-## Email System 📧
-
-Implemented using Nodemailer:
-
-- Password reset emails
-- Reminder emails
-- Notifications
+  * 80% usage
+  * 100% usage
+* Real-time budget progress
 
 ---
 
-## Security 🔐
+### 👨‍👩‍👧 Family Space
 
-- JWT Authentication
-- Password Hashing
-- Helmet
-- CORS
-- Joi Validation
-- Protected APIs
-
----
-
-## Pagination
-
-Implemented on:
-
-- Bills
-- Expenses
-- Notifications
-- Subscriptions
+* Create or join a family using an invitation code
+* Support for up to 10 members
+* Monthly financial totals per member
+* Member management
+* Leave or delete a family
+* **Shared family budget**
+* Live family budget progress
 
 ---
 
-# 🛠️ Tech Stack
+### 📅 Financial Calendar
 
-## Backend
+A dedicated monthly financial calendar displaying:
 
-- Node.js
-- Express.js
-
-## Database
-
-- MongoDB
-- Mongoose
-
-## Authentication
-
-- JWT
-- bcrypt
-
-## Validation
-
-- Joi
-
-## File Upload
-
-- Multer
-
-## Emails
-
-- Nodemailer
-
-## Scheduling
-
-- Node Cron
-
-## Payments
-
-- Payment Gateway Integration
+* Bills
+* Installments
+* Subscription renewals
+* Savings goal dates
+* Selected-day details
+* Monthly totals
+* Arabic and English support
 
 ---
 
-# 📂 Project Structure
+### 🤖 Velora AI
 
-```bash
+Powered primarily by **Google Gemini**.
+
+* AI financial assistant
+* Conversational AI
+* Spending analysis
+* Automatic expense categorization
+* **AI receipt scanning**
+* Local fallback for expense categorization when the AI service is unavailable
+* Retry and fallback handling
+
+---
+
+### 💳 Plans & Payments
+
+Powered by **Paymob**.
+
+* Free plan
+* Premium plan
+* Family plan
+* Monthly and yearly billing
+* Real subscription state displayed throughout the application
+* Subscription status shown in:
+
+  * Dashboard
+  * Profile
+  * Settings
+  * Membership card
+
+> Paymob is currently configured with test credentials for development.
+
+---
+
+### 🔔 Notifications
+
+Velora supports three notification channels:
+
+#### In-App Notifications
+
+* Read notifications
+* Delete individual notifications
+* Delete all notifications
+* Mark all as read
+
+#### Email Notifications
+
+* Email reminders
+* Configurable notification preferences
+
+#### Browser Push Notifications
+
+* Web Push API
+* VAPID authentication
+* Notifications can be delivered even when the application is closed
+* Custom Service Worker integration
+
+---
+
+### ⚙️ Settings & Profile
+
+Users can manage:
+
+* Language
+* Currency:
+
+  * EGP
+  * USD
+  * EUR
+* Month start day
+* Notification preferences
+* Light/Dark theme
+* Accent color
+* Password changes
+* Active sessions
+* JSON data backup export
+* JSON data restoration
+* Account deletion
+
+### 👤 Profile
+
+* Membership card
+* Profile image upload
+* Structured profile sections
+* Current plan information
+
+---
+
+## 🌍 User Experience
+
+### 🌐 Bilingual
+
+Full **Arabic ⇄ English** support with:
+
+* RTL support
+* Cairo font
+* Localized UI
+* Persistent language preference
+
+### 🌓 Theme System
+
+* Light mode
+* Dark mode
+* Theme preference persists between sessions
+
+### 📡 Offline-First
+
+Velora is designed to remain usable when the user temporarily loses their internet connection.
+
+Features include:
+
+* Offline operation queue
+* Cached data
+* Synchronization handling
+* Offline status banner
+* Sync status badge
+
+### 📱 Progressive Web App
+
+Velora can be installed as a **PWA** with:
+
+* Web App Manifest
+* Generated application icons
+* Service Worker
+* Offline capabilities
+* Production-only Service Worker registration
+
+Additional platform features include:
+
+* Privacy Policy
+* Terms of Service
+* Custom 404 page
+* Protected admin routes
+
+---
+
+## 🛡️ Admin Dashboard
+
+Available at:
+
+```text
+/admin
+```
+
+The administration dashboard provides:
+
+* Platform statistics
+* User management
+* Detailed user information
+* Payment management
+* Plan management
+* Revenue analytics
+* **Global announcement broadcasting**
+
+  * In-app notifications
+  * Browser push notifications
+  * Delivery counters
+
+---
+
+## 🔒 Security
+
+Velora implements several security mechanisms:
+
+* **Helmet** security headers
+* Configurable CORS
+* Login rate limiting
+* JWT authentication
+* 1-hour JWT expiration
+* Global 401 handling
+* Password hashing with bcrypt
+* Email verification codes
+* Verification-code expiration
+* Verification attempt limits
+* Role-based access control
+* Restricted file uploads
+* File type and size validation
+* Sanitized upload filenames
+* Clear validation error messages
+* Strict database startup handling
+* Clear database connection failure messages
+
+---
+
+## 🧱 Tech Stack
+
+| Layer             | Technologies                                                                        |
+| ----------------- | ----------------------------------------------------------------------------------- |
+| **Frontend**      | React 19, Vite 8, Tailwind CSS 4, Ant Design, Recharts, Framer Motion, lucide-react |
+| **Backend**       | Node.js, Express 5, Mongoose 9, JWT, bcrypt, Multer, Nodemailer, express-rate-limit |
+| **AI**            | Google Gemini with retry and fallback handling                                      |
+| **Payments**      | Paymob                                                                              |
+| **Notifications** | web-push, VAPID, Custom Service Worker                                              |
+| **Database**      | MongoDB Atlas                                                                       |
+
+---
+
+## 📁 Project Structure
+
+```text
 Velora/
 │
-├── controllers/
-├── models/
-├── routes/
-├── middlewares/
-├── validations/
-├── utils/
-├── services/
-├── uploads/
-├── config/
-├── app.js
-└── package.json
+├── client/
+│   ├── public/
+│   ├── src/
+│   ├── package.json
+│   └── vite.config.js
+│
+├── server/
+│   ├── config/
+│   ├── controllers/
+│   ├── jobs/
+│   ├── middlewares/
+│   ├── models/
+│   ├── routes/
+│   ├── services/
+│   ├── utils/
+│   ├── validations/
+│   ├── views/
+│   ├── package.json
+│   └── app.js
+│
+├── .github/
+│   └── workflows/
+│
+├── README.md
+└── .gitignore
 ```
 
 ---
 
-# ⚙️ Environment Variables
+# 🚀 Getting Started
 
-Create a `.env` file:
+## Requirements
 
-```env
-PORT=7000
+Make sure you have:
 
-MONGO_URI=
-
-JWT_SECRET=
-
-EMAIL=
-
-EMAIL_PASSWORD=
-
-PAYMENT_API_KEY=
-```
+* Node.js 20+
+* MongoDB Atlas connection string
+* Gmail account + App Password
+* Google Gemini API key
+* Paymob credentials for payment functionality
+* VAPID keys for browser push notifications
 
 ---
 
-# 📦 Installation
-
-Clone the repository:
+## 1. Clone the Repository
 
 ```bash
 git clone https://github.com/IbrahimMahrez/velora-backend.git
+cd velora-backend
 ```
 
-Install dependencies:
+---
+
+## 2. Backend Setup
 
 ```bash
+cd server
 npm install
 ```
 
-Run the server:
+Create a `.env` file inside the `server` directory.
+
+Then start the development server:
 
 ```bash
 npm run dev
 ```
 
----
+Backend:
 
-# 📌 API Modules
-
-- Authentication API
-- Users API
-- Subscriptions API
-- Bills API
-- Expenses API
-- Installments API
-- Goals API
-- Notifications API
-- Dashboard API
-- Payments API
+```text
+http://localhost:7000
+```
 
 ---
 
-# 🔮 Future Features
+## 3. Frontend Setup
 
-- React Frontend
-- React Native Application
-- AI Financial Assistant
-- PDF Reports
-- Cloudinary Integration
-- Advanced Analytics
-- Family Sharing
+Open another terminal:
+
+```bash
+cd client
+npm install
+```
+
+Create a `.env` file inside the `client` directory.
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Frontend:
+
+```text
+http://localhost:5173
+```
+
+If Vite automatically selects another available port such as `5174`, use the URL displayed in the terminal.
+
+### Production Build
+
+```bash
+npm run build
+```
+
+The production build also enables Service Worker registration.
+
+---
+
+# 🔑 Environment Variables
+
+## Server — `server/.env`
+
+| Variable                | Purpose                                               |
+| ----------------------- | ----------------------------------------------------- |
+| `MONGO_URI`             | MongoDB connection string                             |
+| `PORT`                  | API server port, default: `7000`                      |
+| `JWT_SECRET`            | JWT signing secret                                    |
+| `FRONTEND_URL`          | Allowed frontend origin(s), comma-separated if needed |
+| `USER_EMAIL`            | Email address used for sending emails                 |
+| `USER_APP`              | Gmail App Password                                    |
+| `GEMINI_API_KEY`        | Google Gemini API key                                 |
+| `OPENAI_API_KEY`        | Optional AI fallback                                  |
+| `PAYMOB_API_KEY`        | Paymob API key                                        |
+| `PAYMOB_SECRET_KEY`     | Paymob secret key                                     |
+| `PAYMOB_INTEGRATION_ID` | Paymob integration ID                                 |
+| `PAYMOB_HMAC_SECRET`    | Paymob HMAC secret                                    |
+| `VAPID_PUBLIC_KEY`      | Web Push public key                                   |
+| `VAPID_PRIVATE_KEY`     | Web Push private key                                  |
+| `VAPID_SUBJECT`         | Web Push subject                                      |
+| `NODE_ENV`              | `development` or `production`                         |
+
+---
+
+## Client — `client/.env`
+
+| Variable                 | Purpose                                           |
+| ------------------------ | ------------------------------------------------- |
+| `VITE_API_URL`           | Backend API URL, default: `http://localhost:7000` |
+| `VITE_PAYMOB_PUBLIC_KEY` | Public Paymob key used by the frontend            |
+
+---
+
+# 🔌 API Endpoints
+
+| Method & Endpoint                   | Access        | Description                         |
+| ----------------------------------- | ------------- | ----------------------------------- |
+| `POST /auth/register`               | Public        | Register a new user                 |
+| `POST /auth/login`                  | Public        | User login                          |
+| `POST /auth/send-verification`      | Authenticated | Send email verification code        |
+| `POST /auth/verify-email`           | Authenticated | Verify email                        |
+| `GET /dashboard`                    | Authenticated | Financial dashboard                 |
+| `GET /dashboard/monthly`            | Authenticated | Six-month financial data            |
+| `CRUD /expenses`                    | Authenticated | Expense management                  |
+| `CRUD /bills`                       | Authenticated | Bill management                     |
+| `CRUD /subscription`                | Authenticated | Subscription management             |
+| `CRUD /installments`                | Authenticated | Installment management              |
+| `CRUD /goal`                        | Authenticated | Savings goal management             |
+| `CRUD /budgets`                     | Authenticated | Budget management                   |
+| `PATCH /subscription/:id/used`      | Authenticated | Mark subscription as used           |
+| `PATCH /subscription/:id/autopost`  | Authenticated | Toggle automatic expense posting    |
+| `PATCH /goal/:id/contribute`        | Authenticated | Add a quick savings contribution    |
+| `GET /family`                       | Authenticated | Get family information              |
+| `POST /family`                      | Authenticated | Create a family                     |
+| `POST /family/join`                 | Authenticated | Join a family                       |
+| `POST /family/leave`                | Authenticated | Leave a family                      |
+| `POST /family/remove`               | Authenticated | Remove a family member              |
+| `PUT /family/budget`                | Authenticated | Update family budget                |
+| `DELETE /family`                    | Authenticated | Delete family                       |
+| `POST /ai/chat`                     | Authenticated | AI assistant                        |
+| `GET /ai/insights`                  | Authenticated | AI financial insights               |
+| `POST /ai/categorize`               | Authenticated | AI expense categorization           |
+| `POST /ai/scan-receipt`             | Authenticated | AI receipt scanning                 |
+| `GET /backup/export`                | Authenticated | Export account backup               |
+| `POST /backup/import`               | Authenticated | Restore account backup              |
+| `GET /push/vapid-key`               | Public        | Get VAPID public key                |
+| `POST /push/subscribe`              | Authenticated | Subscribe to push notifications     |
+| `DELETE /push/unsubscribe`          | Authenticated | Unsubscribe from push notifications |
+| `GET/PATCH/DELETE /notifications/*` | Authenticated | Notification management             |
+| `PATCH /notifications/read-all`     | Authenticated | Mark all notifications as read      |
+| `GET /admin/*`                      | Admin         | Administration APIs                 |
+| `POST /admin/broadcast`             | Admin         | Broadcast an announcement           |
+| `GET /plans`                        | Public        | Get available plans                 |
+| `POST /payments/create`             | Authenticated | Create a payment                    |
+
+---
+
+# 🧪 Validation & Testing
+
+The project has been tested across several core workflows, including:
+
+* Production frontend build
+* ESLint validation
+* Authentication
+* Email verification
+* Budgets
+* Family management
+* Savings goals
+* Browser push notifications
+* Data backup and restoration
+* Admin broadcasts
+* Invalid input handling
+* Authorization checks
+
+The application includes **1,000+ translation keys** supporting both Arabic and English, including RTL layout, theme, language, and currency persistence.
+
+---
+
+# ⏰ Automated Jobs
+
+Velora includes scheduled background tasks.
+
+### Daily — 9:00 AM Cairo Time
+
+The scheduler handles:
+
+* Bill reminders
+* Installment reminders
+* Savings goal reminders
+* Abandoned subscription checks
+* Automatic subscription expense posting
+
+The notification system prevents duplicate reminders using a combination of:
+
+```text
+user
+relatedId
+reminderType
+reminderDate
+```
+
+Monthly reminders are automatically regenerated for future cycles.
+
+---
+
+# 📋 Additional Notes
+
+* The Service Worker is registered only in production to prevent stale development assets.
+* Authentication errors are logged to:
+
+```text
+server/logs/auth-errors.log
+```
+
+* The authentication log is automatically rotated when it exceeds 1 MB.
+* Sensitive environment variables should never be committed to Git.
+* Paymob credentials should be replaced with production credentials before deploying real payments.
+
+---
+
+# 🚧 Project Status
+
+**Velora is currently under active development.**
+
+The core financial management, authentication, AI, family, notification, payment, offline, and PWA features are implemented and integrated into the application.
 
 ---
 
 # 👨‍💻 Author
 
-Developed by **Ibrahim Mahrez**
+**Ibrahim Mohamed Haraz**
 
-**Full Stack Developer**
+Computer Science Student & MERN Full-Stack Developer
+
+GitHub: [IbrahimMahrez](https://github.com/IbrahimMahrez)
+
+---
+
+## ⭐ Support
+
+If you find Velora useful or interesting, consider giving the repository a ⭐ on GitHub.
