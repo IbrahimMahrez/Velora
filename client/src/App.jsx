@@ -45,11 +45,11 @@ import Settings from "./pages/Settings/Settings";
 import Profile from "./pages/Profile/Profile";
 import Plans from "./pages/Plans/Plans";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
-import AdminUsers from "./pages/admin/AdminUsers";
-import AdminUserDetails from "./pages/admin/AdminUserDetails";
-import AdminPayments from "./pages/admin/AdminPayments";
-import AdminPlans from "./pages/admin/AdminPlans";
-import AdminAnalytics from "./pages/admin/AdminAnalytics";
+import AdminUsers from "./pages/Admin/AdminUsers";
+import AdminUserDetails from "./pages/Admin/AdminUserDetails";
+import AdminPayments from "./pages/Admin/AdminPayments";
+import AdminPlans from "./pages/Admin/AdminPlans";
+import AdminAnalytics from "./pages/Admin/AdminAnalytics";
 import AdminBroadcast from "./pages/Admin/AdminBroadcast";
 // ================= CONTEXT =================
 import { AuthProvider } from "./context/AuthContext";
