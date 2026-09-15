@@ -144,7 +144,7 @@ app.set("view engine", "ejs");
 // DATABASE + SERVER
 // ======================================================
 
-const port = process.env.PORT || 7000;
+const port = process.env.PORT || 8000;
 
 connectDB()
   .then(() => {
