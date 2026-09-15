@@ -1,3 +1,4 @@
+
 const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
@@ -8,22 +9,41 @@ const cors = require("cors");
 const path = require("path");
 const rateLimit = require("express-rate-limit");
 
-const authLimiter = rateLimit({ windowMs: 15*60*1000, max: 20, standardHeaders: "draft-8", legacyHeaders: false, message: { success:false, message:"Too many attempts, please try again later." } });
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 20,
+  standardHeaders: "draft-8",
+  legacyHeaders: false,
+  message: {
+    success: false,
+    message: "Too many attempts, please try again later.",
+  },
+});
 
-// Middlewares
+// ======================================================
+// MIDDLEWARES
+// ======================================================
+
 const { notFound, errorHandler } = require("./middlewares/errors");
 
-// Routes
+// ======================================================
+// ROUTES
+// ======================================================
+
 const planRoutes = require("./routes/plan");
 const userPlanRoutes = require("./routes/userPlan");
 const expensesRoutes = require("./routes/expenses");
 const adminRoutes = require("./routes/admin");
 
-// Jobs
-require("./jobs/reminderJob");
+// ======================================================
+// LOAD ENVIRONMENT VARIABLES
+// ======================================================
 
-// Load environment variables
 dotenv.config();
+
+// ======================================================
+// INIT
+// ======================================================
 
 const app = express();
 
@@ -31,40 +51,66 @@ const app = express();
 // CORS
 // ======================================================
 
-const FRONTEND_URLS = (process.env.FRONTEND_URL || "http://localhost:5173").split(",").map(s => s.trim()).filter(Boolean);
+const FRONTEND_URLS = (
+  process.env.FRONTEND_URL ||
+  "http://localhost:5173"
+)
+  .split(",")
+  .map((s) => s.trim())
+  .filter(Boolean);
 
 const corsOptions = {
-    origin: FRONTEND_URLS.length === 1 ? FRONTEND_URLS[0] : FRONTEND_URLS,
+  origin: (origin, callback) => {
+    // Allow requests without Origin
+    // Example: Postman / server-to-server
+    if (!origin) {
+      return callback(null, true);
+    }
 
-    credentials: true,
+    if (FRONTEND_URLS.includes(origin)) {
+      return callback(null, true);
+    }
 
-    methods: [
-        "GET",
-        "POST",
-        "PUT",
-        "PATCH",
-        "DELETE",
-        "OPTIONS",
-    ],
+    return callback(
+      new Error(`CORS blocked origin: ${origin}`)
+    );
+  },
 
-    allowedHeaders: [
-        "Content-Type",
-        "Authorization",
-        "Cache-Control",
-        "Pragma",
-    ],
+  credentials: true,
+
+  methods: [
+    "GET",
+    "POST",
+    "PUT",
+    "PATCH",
+    "DELETE",
+    "OPTIONS",
+  ],
+
+  allowedHeaders: [
+    "Content-Type",
+    "Authorization",
+    "Cache-Control",
+    "Pragma",
+  ],
+
+  optionsSuccessStatus: 204,
 };
 
+// CORS middleware
 app.use(cors(corsOptions));
+
+// Explicitly handle preflight requests
+app.options(/.*/, cors(corsOptions));
 
 // ======================================================
 // SECURITY
 // ======================================================
 
 app.use(
-    helmet({
-        crossOriginResourcePolicy: false,
-    })
+  helmet({
+    crossOriginResourcePolicy: false,
+  })
 );
 
 // ======================================================
@@ -74,9 +120,9 @@ app.use(
 app.use(express.json());
 
 app.use(
-    express.urlencoded({
-        extended: false,
-    })
+  express.urlencoded({
+    extended: false,
+  })
 );
 
 // ======================================================
@@ -84,8 +130,8 @@ app.use(
 // ======================================================
 
 app.use(
-    "/uploads",
-    express.static(path.join(__dirname, "uploads"))
+  "/uploads",
+  express.static(path.join(__dirname, "uploads"))
 );
 
 // ======================================================
@@ -96,18 +142,13 @@ app.set("view engine", "ejs");
 
 // ======================================================
 // DATABASE + SERVER
-// Never boot a dead server: if MongoDB is unreachable
-// (wrong URI, Atlas IP whitelist, network down) exit
-// with a clear message instead of accepting requests
-// that can only fail with buffering timeouts.
 // ======================================================
 
 const port = process.env.PORT || 7000;
 
 connectDB()
   .then(() => {
-    // Schedulers need a live DB connection, so they
-    // start only after MongoDB is reachable.
+    // Start schedulers only after MongoDB is connected
     const {
       startNotificationScheduler,
       runNotificationChecks,
@@ -118,11 +159,18 @@ connectDB()
 
     app.listen(port, () => {
       console.log(
-        `Server is running in ${process.env.NODE_ENV || "development"} mode on port ${port}`
+        `Server is running in ${
+          process.env.NODE_ENV || "development"
+        } mode on port ${port}`
       );
 
       console.log(
-        `http://localhost:${port}`
+        `Server URL: http://localhost:${port}`
+      );
+
+      console.log(
+        "Allowed Frontend URLs:",
+        FRONTEND_URLS
       );
     });
   })
@@ -130,10 +178,15 @@ connectDB()
     console.error(
       "Could not connect to MongoDB. Server not started."
     );
-    console.error(`Reason: ${err.message}`);
+
     console.error(
-      "If you use MongoDB Atlas, whitelist your current IP: Atlas dashboard > Network Access > Add IP Address."
+      `Reason: ${err.message}`
     );
+
+    console.error(
+      "If you use MongoDB Atlas, whitelist your server IP in Atlas > Network Access."
+    );
+
     process.exit(1);
   });
 
@@ -142,153 +195,223 @@ connectDB()
 // ======================================================
 
 // Authentication
-app.use("/auth/login", authLimiter);
-app.use("/auth/forgetpassword", authLimiter);
-app.use("/auth/send-verification", authLimiter);
 app.use(
-    "/auth",
-    require("./routes/auth")
-);
-
-// Subscriptions
-app.use(
-    "/subscription",
-    require("./routes/subscriptions")
-);
-
-// Bills
-app.use(
-    "/bills",
-    require("./routes/bills")
-);
-
-// Expenses
-app.use(
-    "/expenses",
-    (req, res, next) => {
-        res.set("Cache-Control", "no-store");
-        next();
-    }
+  "/auth/login",
+  authLimiter
 );
 
 app.use(
-    "/expenses",
-    expensesRoutes
+  "/auth/forgetpassword",
+  authLimiter
 );
 
-// Budgets
 app.use(
-    "/budgets",
-    require("./routes/budget")
+  "/auth/send-verification",
+  authLimiter
 );
 
-// Family
 app.use(
-    "/family",
-    require("./routes/family")
+  "/auth",
+  require("./routes/auth")
 );
 
-// Installments
+// ======================================================
+// SUBSCRIPTIONS
+// ======================================================
+
 app.use(
-    "/installments",
-    require("./routes/installments")
+  "/subscription",
+  require("./routes/subscriptions")
 );
 
-// Goals
+// ======================================================
+// BILLS
+// ======================================================
+
 app.use(
-    "/goal",
-    require("./routes/goal")
+  "/bills",
+  require("./routes/bills")
 );
 
-// Dashboard
+// ======================================================
+// EXPENSES
+// ======================================================
+
 app.use(
-    "/dashboard",
-    require("./routes/dashboard")
+  "/expenses",
+  (req, res, next) => {
+    res.set("Cache-Control", "no-store");
+    next();
+  }
 );
 
-// Plans
 app.use(
-    "/plans",
-    planRoutes
+  "/expenses",
+  expensesRoutes
 );
 
-// User Plan
+// ======================================================
+// BUDGETS
+// ======================================================
+
 app.use(
-    "/user-plan",
-    userPlanRoutes
+  "/budgets",
+  require("./routes/budget")
 );
 
-// Users
+// ======================================================
+// FAMILY
+// ======================================================
+
+app.use(
+  "/family",
+  require("./routes/family")
+);
+
+// ======================================================
+// INSTALLMENTS
+// ======================================================
+
+app.use(
+  "/installments",
+  require("./routes/installments")
+);
+
+// ======================================================
+// GOALS
+// ======================================================
+
+app.use(
+  "/goal",
+  require("./routes/goal")
+);
+
+// ======================================================
+// DASHBOARD
+// ======================================================
+
+app.use(
+  "/dashboard",
+  require("./routes/dashboard")
+);
+
+// ======================================================
+// PLANS
+// ======================================================
+
+app.use(
+  "/plans",
+  planRoutes
+);
+
+// ======================================================
+// USER PLAN
+// ======================================================
+
+app.use(
+  "/user-plan",
+  userPlanRoutes
+);
+
+// ======================================================
+// USERS
+// ======================================================
+
 const userRoutes = require("./routes/userRoutes");
 
 app.use(
-    "/users",
-    userRoutes
+  "/users",
+  userRoutes
 );
 
-// Payments
+// ======================================================
+// PAYMENTS
+// ======================================================
+
 const paymentRoutes = require("./routes/payment");
 
 app.use(
-    "/payments",
-    paymentRoutes
+  "/payments",
+  paymentRoutes
 );
 
+// ======================================================
 // AI
+// ======================================================
+
 const aiRoutes = require("./routes/aiRoutes");
 
 app.use(
-    "/ai",
-    aiRoutes
+  "/ai",
+  aiRoutes
 );
 
-// Notifications
+// ======================================================
+// NOTIFICATIONS
+// ======================================================
+
 const notificationRoutes = require("./routes/notification");
 
 app.use(
-    "/notifications",
-    notificationRoutes
+  "/notifications",
+  notificationRoutes
 );
 
-// Notification Settings
-const notificationSettingsRoutes = require("./routes/notificationSettingsRoutes");
+// ======================================================
+// NOTIFICATION SETTINGS
+// ======================================================
+
+const notificationSettingsRoutes = require(
+  "./routes/notificationSettingsRoutes"
+);
 
 app.use(
-    "/notification-settings",
-    notificationSettingsRoutes
+  "/notification-settings",
+  notificationSettingsRoutes
 );
 
-// Web Push
+// ======================================================
+// WEB PUSH
+// ======================================================
+
 const pushRoutes = require("./routes/push");
 
 app.use(
-    "/push",
-    pushRoutes
+  "/push",
+  pushRoutes
 );
 
-// Backup (export / import)
+// ======================================================
+// BACKUP
+// ======================================================
+
 const backupRoutes = require("./routes/backup");
 
 app.use(
-    "/backup",
-    backupRoutes
-);
-
-// Settings
-const settingsRoutes = require("./routes/settingsRoutes");
-
-app.use(
-    "/settings",
-    settingsRoutes
+  "/backup",
+  backupRoutes
 );
 
 // ======================================================
-// ADMIN ROUTES
+// SETTINGS
+// ======================================================
+
+const settingsRoutes = require(
+  "./routes/settingsRoutes"
+);
+
+app.use(
+  "/settings",
+  settingsRoutes
+);
+
+// ======================================================
+// ADMIN
 // ======================================================
 
 app.use(
-    "/admin",
-    adminRoutes
+  "/admin",
+  adminRoutes
 );
 
 // ======================================================
