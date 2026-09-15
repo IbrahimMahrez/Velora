@@ -79,7 +79,9 @@
   display: flex;
   flex-direction: column;
 
-  padding: 24px 16px;
+  padding: 20px 14px;
+
+  overflow: hidden;
 
   background: rgba(12, 12, 12, 0.68);
   backdrop-filter: blur(24px);
@@ -97,8 +99,9 @@
   display: flex;
   align-items: center;
   gap: 11px;
+  flex-shrink: 0;
 
-  padding: 4px 10px 30px;
+  padding: 2px 10px 18px;
 
   font-size: 19px;
   font-weight: 600;
@@ -140,17 +143,43 @@
 .dashboard-nav {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
+
+  flex: 1;
+  min-height: 0;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding-inline-end: 2px;
+  margin-inline-end: -2px;
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.14) transparent;
+}
+
+.dashboard-nav::-webkit-scrollbar {
+  width: 4px;
+}
+
+.dashboard-nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dashboard-nav::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
 }
 
 .dashboard-nav-item {
   width: 100%;
+  flex-shrink: 0;
 
   display: flex;
   align-items: center;
   gap: 12px;
 
-  padding: 12px 13px;
+  padding: 10px 13px;
 
   border: 0;
   border-radius: 12px;
@@ -170,10 +199,24 @@
     transform 0.25s ease;
 }
 
+.dashboard-nav-item > span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dashboard-nav-item > svg {
+  flex-shrink: 0;
+}
+
 .dashboard-nav-item:hover {
   background: rgba(255, 255, 255, 0.07);
   color: #ffffff;
   transform: translateX(2px);
+}
+
+html[dir="rtl"] .dashboard-nav-item:hover {
+  transform: translateX(-2px);
 }
 
 .dashboard-nav-item.active {
@@ -184,12 +227,13 @@
 
 .dashboard-sidebar-bottom {
   margin-top: auto;
+  flex-shrink: 0;
 
   display: flex;
   flex-direction: column;
   gap: 5px;
 
-  padding-top: 15px;
+  padding-top: 12px;
 
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }

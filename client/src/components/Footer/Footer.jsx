@@ -92,7 +92,12 @@ function Footer() {
                   {group.links.map((link) => (
                     <a
                       key={link}
-                      href="#"
+                      href={
+                        link === "About" ||
+                        link === t("nav.about")
+                          ? "#about"
+                          : "#"
+                      }
                       className="group flex items-center gap-1 text-xs text-white/35 transition-colors duration-300 hover:text-white"
                     >
                       {link}

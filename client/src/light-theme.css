@@ -205,6 +205,14 @@ html[data-theme="light"] .settings-success {
 
 /* ================= NAV / SIDEBAR ================= */
 
+html[data-theme="light"] .dashboard-nav {
+  scrollbar-color: rgba(20, 28, 40, 0.18) transparent;
+}
+
+html[data-theme="light"] .dashboard-nav::-webkit-scrollbar-thumb {
+  background: rgba(20, 28, 40, 0.18);
+}
+
 html[data-theme="light"] :is(
   .dashboard-nav-item,
   .sidebar-item

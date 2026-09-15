@@ -215,6 +215,43 @@ export const translations = {
         "Built for real life",
       ],
     },
+    about: {
+      badge: "About Velora",
+      titleA: "Built by someone who",
+      titleB: "needed it himself.",
+      description:
+        "Velora started as a personal tool to stop missing payments and understand where money goes every month — then grew into a full financial workspace.",
+      story:
+        "Every feature exists because of a real frustration: forgotten subscriptions, surprise bills, savings that never happen. Velora is my answer to all of that, built with the MERN stack and crafted detail by detail.",
+      initials: "IM",
+      name: "Ibrahim Mahrez",
+      role: "Full-Stack Developer (MERN)",
+      cardBio:
+        "I design and build complete web applications — from database to pixel.",
+      contactHint: "Open to work, feedback and collaboration.",
+      stats: [
+        { value: "MERN", label: "Full-stack architecture" },
+        { value: "2", label: "Languages: English & Arabic" },
+        { value: "AI", label: "Smart financial insights" },
+      ],
+      values: [
+        {
+          title: "Security first",
+          description:
+            "Hashed passwords, short-lived sessions and protected admin areas.",
+        },
+        {
+          title: "Truly bilingual",
+          description:
+            "Complete Arabic experience with RTL layout, not a translation patch.",
+        },
+        {
+          title: "Intelligence built-in",
+          description:
+            "AI categorization, receipt scanning and spending insights out of the box.",
+        },
+      ],
+    },
     pricing: {
       badge: "Simple pricing",
       titleA: "Choose the way you want",
@@ -1571,6 +1608,39 @@ export const translations = {
         },
       ],
       trust: ["آمن بالتصميم", "تحليلات ذكية", "مصمم للحياة الواقعية"],
+    },
+    about: {
+      badge: "عن فيلورا",
+      titleA: "اتبنت على إيد حد",
+      titleB: "كان محتاجها لنفسه.",
+      description:
+        "فيلورا بدأت كأداة شخصية عشان مفيش فواتير تضيع ومفيش فلوس تختفي من غير ما أعرف راحت فين — وبعدين كبرت لمساحة مالية كاملة.",
+      story:
+        "كل ميزة موجودة بسبب إحباط حقيقي: اشتراكات منسية وفواتير مفاجئة وتحويش مبيحصلش. فيلورا هي إجابتي على كل ده، مبنية ب MERN ومتظبطة تفصيلة تفصيلة.",
+      initials: "IM",
+      name: "إبراهيم محرز",
+      role: "مطور Full-Stack (MERN)",
+      cardBio: "بصمم وأبني تطبيقات ويب كاملة — من الداتابيز للبكسل.",
+      contactHint: "متاح للشغل والملاحظات والتعاون.",
+      stats: [
+        { value: "MERN", label: "بنية متكاملة" },
+        { value: "2", label: "لغتين: عربي وإنجليزي" },
+        { value: "AI", label: "تحليلات مالية ذكية" },
+      ],
+      values: [
+        {
+          title: "الأمان أولاً",
+          description: "باسوردات مشفرة وجلسات قصيرة ومناطق إدارة محمية.",
+        },
+        {
+          title: "عربي بجد",
+          description: "تجربة عربية كاملة باتجاه RTL، مش ترجمة ملزوقة.",
+        },
+        {
+          title: "ذكاء مدمج",
+          description: "تصنيف تلقائي ومسح فواتير وتحليلات صرف جاهزة.",
+        },
+      ],
     },
     pricing: {
       badge: "أسعار بسيطة",

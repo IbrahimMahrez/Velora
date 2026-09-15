@@ -11,6 +11,7 @@ import FinancialOverview from "./components/FinancialOverview/FinancialOverview"
 import AIInsights from "./components/AIInsights/AIInsights";
 import UseCases from "./components/UseCases/UseCases";
 import SocialProof from "./components/SocialProof/SocialProof";
+import About from "./components/About/About";
 import Pricing from "./components/Pricing/Pricing";
 import FAQ from "./components/FAQ/FAQ";
 import FinalCTA from "./components/FinalCTA/FinalCTA";
@@ -78,6 +79,7 @@ function LandingPage() {
       <AIInsights />
       <UseCases />
       <SocialProof />
+      <About />
       <Pricing />
       <FAQ />
       <FinalCTA />
