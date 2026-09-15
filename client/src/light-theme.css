@@ -1,0 +1,541 @@
+/* =========================================================
+   VELORA LIGHT THEME
+   Activated via <html data-theme="light"> (Settings >
+   Appearance, persisted in velora-settings).
+   The marketing landing keeps its dark brand identity;
+   everything below covers the app, auth, admin, legal.
+========================================================= */
+
+html[data-theme="light"] {
+  color-scheme: light;
+  --background: #edf0f5;
+  --foreground: #171a21;
+}
+
+/* ================= BASE ================= */
+
+html[data-theme="light"] body {
+  background-color: #edf0f5;
+  color: #171a21;
+}
+
+/* Page roots */
+html[data-theme="light"] :is(
+  .dashboard-page,
+  .expenses-page,
+  .bills-page,
+  .subscriptions-page,
+  .installments-page,
+  .saving-goals-page,
+  .settings-page,
+  .profile-page,
+  .plans-page,
+  .ai-insights-page,
+  .admin-page,
+  .admin-analytics-page,
+  .admin-payments-page,
+  .admin-plans-page,
+  .user-details-page,
+  .admin-users-page,
+  .budgets-page,
+  .family-page,
+  .calendar-page,
+  .legal-page,
+  .notfound-page
+) {
+  background: #edf0f5;
+  color: #171a21;
+}
+
+html[data-theme="light"] :is(.auth-page, .register-page) {
+  color: #171a21;
+}
+
+/* ================= SURFACES =================
+   Dark glass cards/panels/sidebars -> white */
+
+html[data-theme="light"] :is(
+  .dashboard-sidebar,
+  .dashboard-card,
+  .dashboard-stat-card,
+  .dashboard-welcome,
+  .dashboard-ai-banner,
+  .expenses-card,
+  .expense-stat-card,
+  .bill-card,
+  .bill-stat-card,
+  .glass-panel,
+  .subscriptions-main-card,
+  .subscription-stat,
+  .installment-card,
+  .installment-stat-card,
+  .stat-card,
+  .goal-card,
+  .settings-sidebar,
+  .settings-card,
+  .profile-identity-card,
+  .profile-setting-card,
+  .membership-info-panel,
+  .profile-edit-modal,
+  .plan-card,
+  .ai-summary-card,
+  .ai-chat-card,
+  .auth-panel,
+  .register-panel,
+  .admin-sidebar,
+  .admin-card,
+  .mini-stat,
+  .admin-welcome,
+  .legal-card,
+  .notfound-card,
+  .notification-dropdown,
+  .onboarding-card,
+  .budgets-total-card,
+  .budget-card,
+  .family-card,
+  .family-split > *,
+  .calendar-grid-card,
+  .calendar-day-list,
+  .calendar-stat,
+  .profile-membership-stack > *,
+  .profile-settings-stack > *
+) {
+  background: #ffffff;
+  border-color: rgba(20, 28, 40, 0.09);
+  color: #171a21;
+  box-shadow: 0 12px 32px rgba(20, 28, 40, 0.08);
+}
+
+/* Stat tint cards keep a soft tint instead of dark glass */
+html[data-theme="light"] :is(
+  .dashboard-stat-card.expense,
+  .dashboard-stat-card.bill,
+  .dashboard-stat-card.subscription,
+  .dashboard-stat-card.goal
+) {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(125, 92, 255, 0.08),
+      #ffffff
+    );
+}
+
+/* ================= TEXT ================= */
+
+html[data-theme="light"] :is(
+  .dashboard-page,
+  .expenses-page,
+  .bills-page,
+  .subscriptions-page,
+  .installments-page,
+  .saving-goals-page,
+  .settings-page,
+  .profile-page,
+  .plans-page,
+  .ai-insights-page,
+  .auth-page,
+  .register-page,
+  .admin-page,
+  .legal-page,
+  .notfound-page,
+  .budgets-page,
+  .family-page
+) :is(h1, h2, h3, h4, strong, b, th, label) {
+  color: #171a21;
+}
+
+html[data-theme="light"] :is(
+  .dashboard-eyebrow,
+  .card-heading span,
+  .stat-card-top,
+  .financial-row-label,
+  .dashboard-welcome > div:first-child span,
+  .dashboard-welcome p,
+  .plan-badge small,
+  .list-item-left span,
+  .settings-eyebrow,
+  .setting-info span,
+  .section-header p,
+  .profile-eyebrow,
+  .auth-tagline,
+  .legal-updated,
+  .notfound-card p,
+  .notification-header span,
+  .notification-content p,
+  .empty-state
+) {
+  color: #5b6472;
+}
+
+html[data-theme="light"] :is(
+  .list-item-left strong,
+  .financial-row > strong,
+  .dashboard-list-item > strong,
+  .dashboard-topbar h1,
+  .dashboard-user-info span,
+  .goal-details strong,
+  .goal-circle strong,
+  .plan-price strong,
+  .setting-info strong,
+  .membership-info-item strong,
+  .profile-name-row,
+  .stat-number,
+  .admin-table td
+) {
+  color: #171a21;
+}
+
+/* Keep semantic colors readable */
+html[data-theme="light"] .dashboard-error p {
+  color: #b42318;
+}
+
+html[data-theme="light"] :is(.settings-error, .auth-error) {
+  color: #b42318;
+  background: rgba(180, 35, 24, 0.07);
+  border-color: rgba(180, 35, 24, 0.18);
+}
+
+html[data-theme="light"] .settings-success {
+  color: #067647;
+  background: rgba(6, 118, 71, 0.07);
+  border-color: rgba(6, 118, 71, 0.18);
+}
+
+/* ================= NAV / SIDEBAR ================= */
+
+html[data-theme="light"] :is(
+  .dashboard-nav-item,
+  .sidebar-item
+) {
+  color: #5b6472;
+}
+
+html[data-theme="light"] :is(
+  .dashboard-nav-item:hover,
+  .sidebar-item:hover
+) {
+  background: rgba(20, 28, 40, 0.05);
+  color: #171a21;
+}
+
+html[data-theme="light"] :is(
+  .dashboard-nav-item.active,
+  .sidebar-item.active
+) {
+  background: rgba(125, 92, 255, 0.1);
+  color: #171a21;
+}
+
+html[data-theme="light"] .dashboard-brand-logo {
+  filter: none;
+}
+
+html[data-theme="light"] .dashboard-user {
+  background: #ffffff;
+  border-color: rgba(20, 28, 40, 0.1);
+}
+
+html[data-theme="light"] .dashboard-avatar {
+  background: #171a21;
+  color: #fff;
+}
+
+html[data-theme="light"] .settings-menu-item {
+  color: #5b6472;
+}
+
+html[data-theme="light"] .settings-menu-item.active {
+  background: rgba(125, 92, 255, 0.1);
+  color: #171a21;
+  border-color: rgba(125, 92, 255, 0.25);
+}
+
+/* ================= INPUTS ================= */
+
+html[data-theme="light"] :is(
+  .dashboard-page,
+  .expenses-page,
+  .bills-page,
+  .subscriptions-page,
+  .installments-page,
+  .saving-goals-page,
+  .settings-page,
+  .profile-page,
+  .plans-page,
+  .ai-insights-page,
+  .auth-page,
+  .register-page,
+  .admin-page
+) :is(input, select, textarea) {
+  background: #f4f6fa;
+  border: 1px solid rgba(20, 28, 40, 0.12);
+  color: #171a21;
+}
+
+html[data-theme="light"] :is(
+  .dashboard-page,
+  .expenses-page,
+  .bills-page,
+  .admin-page
+) :is(input::placeholder, textarea::placeholder) {
+  color: #9aa3b2;
+}
+
+/* Ghost/secondary buttons with white text need dark text */
+html[data-theme="light"] :is(
+  .auth-btn-ghost,
+  .register-btn-ghost,
+  .back-dashboard-btn,
+  .settings-back,
+  .legal-back,
+  .notfound-dash,
+  .ai-back-button
+) {
+  color: #171a21;
+  border-color: rgba(20, 28, 40, 0.14);
+}
+
+/* Toggle track */
+html[data-theme="light"] .toggle {
+  background: #d4dae3;
+}
+
+html[data-theme="light"] .toggle.enabled {
+  background: var(--velora-accent);
+}
+
+/* Tabs */
+html[data-theme="light"] :is(.bill-tab, .installment-tab) {
+  color: #5b6472;
+}
+
+html[data-theme="light"] :is(.bill-tab.active, .installment-tab.active) {
+  background: #171a21;
+  color: #fff;
+}
+
+/* ================= LISTS / TABLES ================= */
+
+html[data-theme="light"] :is(
+  .dashboard-list-item,
+  .expense-row,
+  .financial-row,
+  .membership-info-item,
+  .setting-row
+) {
+  border-bottom-color: rgba(20, 28, 40, 0.07);
+}
+
+html[data-theme="light"] .admin-table thead th {
+  color: #5b6472;
+  border-bottom-color: rgba(20, 28, 40, 0.1);
+}
+
+html[data-theme="light"] .admin-table tbody td {
+  border-bottom-color: rgba(20, 28, 40, 0.06);
+}
+
+html[data-theme="light"] .admin-table tbody tr:hover {
+  background: rgba(20, 28, 40, 0.03);
+}
+
+/* Dividers */
+html[data-theme="light"] :is(
+  .subscription-divider,
+  .dashboard-sidebar-bottom,
+  .sidebar-bottom
+) {
+  border-color: rgba(20, 28, 40, 0.09);
+}
+
+/* ================= BACKGROUNDS / OVERLAYS ================= */
+
+/* Dashboard cinematic video + dark scrim don't work on light */
+html[data-theme="light"] .dashboard-video {
+  opacity: 0.18;
+}
+
+html[data-theme="light"] .dashboard-overlay {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(237, 240, 245, 0.96) 0%,
+      rgba(237, 240, 245, 0.75) 30%,
+      rgba(237, 240, 245, 0.35) 60%,
+      rgba(237, 240, 245, 0) 100%
+    );
+}
+
+html[data-theme="light"] :is(
+  .ambient-orb,
+  .saving-bg-one,
+  .saving-bg-two
+) {
+  opacity: 0.35;
+}
+
+/* Goals progress ring track */
+html[data-theme="light"] .goal-circle {
+  background:
+    radial-gradient(
+      circle at center,
+      #ffffff 59%,
+      transparent 60%
+    ),
+    conic-gradient(
+      #10b981 0deg,
+      #10b981 230deg,
+      #e2e8f0 230deg,
+      #e2e8f0 360deg
+    );
+}
+
+html[data-theme="light"] :is(
+  .onboarding-step h2,
+  .onboarding-currency-btn,
+  .onboarding-input,
+  .onboarding-label
+) {
+  color: #171a21;
+}
+
+html[data-theme="light"] :is(
+  .onboarding-step p,
+  .onboarding-link
+) {
+  color: #5b6472;
+}
+
+html[data-theme="light"] .onboarding-input {
+  background: #f4f6fa;
+  border: 1px solid rgba(20, 28, 40, 0.12);
+}
+
+html[data-theme="light"] .onboarding-currency-btn {
+  background: #f4f6fa;
+  border-color: rgba(20, 28, 40, 0.12);
+}
+
+html[data-theme="light"] .onboarding-primary {
+  background: var(--velora-accent);
+  border-color: var(--velora-accent);
+  color: #fff;
+}
+
+html[data-theme="light"] .goal-contribute input {
+  background: #f4f6fa;
+  border-color: rgba(20, 28, 40, 0.12);
+  color: #171a21;
+}
+
+html[data-theme="light"] :is(
+  .calendar-day,
+  .calendar-nav button,
+  .calendar-today-btn
+) {
+  color: #5b6472;
+  border-color: rgba(20, 28, 40, 0.12);
+  background: #ffffff;
+}
+
+html[data-theme="light"] .calendar-day:hover {
+  background: rgba(20, 28, 40, 0.04);
+}
+
+html[data-theme="light"] .calendar-day.today .calendar-day-num {
+  background: #171a21;
+  color: #fff;
+}
+
+html[data-theme="light"] .calendar-day.selected {
+  border-color: rgba(125, 92, 255, 0.5);
+  background: rgba(125, 92, 255, 0.08);
+}
+
+html[data-theme="light"] .calendar-weekdays span,
+html[data-theme="light"] .calendar-event small,
+html[data-theme="light"] .calendar-empty,
+html[data-theme="light"] .calendar-subtitle {
+  color: #5b6472;
+}
+
+html[data-theme="light"] :is(
+  .calendar-event,
+  .calendar-day-list,
+  .calendar-grid-card
+) {
+  border-color: rgba(20, 28, 40, 0.09);
+}
+
+html[data-theme="light"] .calendar-event {
+  border-bottom-color: rgba(20, 28, 40, 0.07);
+}
+
+html[data-theme="light"] .bill-scan-btn {
+  background: rgba(125, 92, 255, 0.08);
+  border-color: rgba(125, 92, 255, 0.3);
+  color: #6d28d9;
+}
+
+html[data-theme="light"] .bill-preview {
+  background: #fff;
+  border-color: rgba(20, 28, 40, 0.1);
+}
+
+html[data-theme="light"] .bill-preview-info strong {
+  color: #171a21;
+}
+
+html[data-theme="light"] .bill-preview-info span {
+  color: #5b6472;
+}
+
+html[data-theme="light"] .broadcast-card h2 {
+  color: #171a21;
+}
+
+html[data-theme="light"] .broadcast-hint {
+  color: #5b6472;
+}
+
+html[data-theme="light"] :is(
+  .broadcast-card input,
+  .broadcast-card textarea
+) {
+  background: #f4f6fa;
+  border-color: rgba(20, 28, 40, 0.12);
+  color: #171a21;
+}
+
+html[data-theme="light"] .broadcast-card label {
+  color: #5b6472;
+}
+
+html[data-theme="light"] .broadcast-send {
+  background: #171a21;
+  color: #fff;
+}
+
+/* ================= ACCENT =================
+   In dark mode the accent already applies to highlights
+   (notification badge, dots) via var(--velora-accent).
+   In light mode it also drives primary buttons. */
+
+html[data-theme="light"] :is(
+  .settings-save-button,
+  .auth-btn-solid,
+  .register-btn-solid,
+  .plan-btn,
+  .manage-plan-button,
+  .add-expense-btn,
+  .add-bill-btn,
+  .add-subscription-btn,
+  .add-installment-btn,
+  .create-goal-btn
+) {
+  background: var(--velora-accent);
+  border-color: var(--velora-accent);
+  color: #fff;
+}

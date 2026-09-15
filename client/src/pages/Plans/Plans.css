@@ -1,0 +1,973 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap");
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.plans-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 80px 24px;
+  background:
+    radial-gradient(
+      circle at 78% 8%,
+      rgba(125, 92, 255, 0.1),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 12% 75%,
+      rgba(125, 92, 255, 0.055),
+      transparent 25%
+    ),
+    #030303;
+  color: #f5f5f5;
+  font-family: "Barlow", sans-serif;
+}
+
+/* Ambient glow */
+
+.plans-page::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  top: -250px;
+  right: -150px;
+  border-radius: 50%;
+  background: rgba(125, 92, 255, 0.06);
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.plans-page::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  bottom: -250px;
+  left: -150px;
+  border-radius: 50%;
+  background: rgba(125, 92, 255, 0.045);
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.plans-header {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto 55px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.plans-header-info {
+  min-width: 0;
+}
+
+.plans-eyebrow {
+  display: block;
+  margin-bottom: 14px;
+  color: #737078;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.plans-header h1 {
+  margin: 0;
+  color: #f5f5f5;
+  font-family: "Instrument Serif", serif;
+  font-size: clamp(60px, 7vw, 100px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 0.82;
+  letter-spacing: -0.04em;
+}
+
+.plans-header p {
+  max-width: 510px;
+  margin: 25px 0 0;
+  color: #65636a;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.plans-back-btn {
+  flex-shrink: 0;
+  height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 19px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
+  color: #8d8a92;
+  font-family: "Barlow", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.plans-back-btn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.065);
+  color: #fff;
+}
+
+/* =========================================================
+   BILLING TOGGLE
+========================================================= */
+
+.plans-billing {
+  position: relative;
+  z-index: 3;
+  width: fit-content;
+  margin: 0 auto 50px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.065);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+.plans-billing-btn {
+  position: relative;
+  height: 39px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #66616d;
+  font-family: "Barlow", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.plans-billing-btn:hover {
+  color: #aaa;
+}
+
+.plans-billing-btn.active {
+  background: rgba(125, 92, 255, 0.14);
+  color: #b7a7ff;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    0 0 20px rgba(125, 92, 255, 0.05);
+}
+
+.plans-save {
+  margin-left: 4px;
+  color: #6ed5a1;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* =========================================================
+   PLANS GRID
+========================================================= */
+
+.plans-grid {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* =========================================================
+   PLAN CARD
+========================================================= */
+
+.plan-card {
+  position: relative;
+  min-height: 560px;
+  padding: 31px 29px 28px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.065);
+  border-radius: 26px;
+  background:
+    radial-gradient(
+      circle at 85% 0%,
+      rgba(125, 92, 255, 0.07),
+      transparent 34%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.012)
+    );
+  box-shadow:
+    0 22px 65px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.plan-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(255, 255, 255, 0.13);
+  box-shadow:
+    0 35px 90px rgba(0, 0, 0, 0.5),
+    0 0 45px rgba(125, 92, 255, 0.04);
+}
+
+/* Premium */
+
+.plan-card.premium {
+  border-color: rgba(125, 92, 255, 0.25);
+  background:
+    radial-gradient(
+      circle at 90% 0%,
+      rgba(125, 92, 255, 0.16),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 0% 100%,
+      rgba(125, 92, 255, 0.07),
+      transparent 35%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(125, 92, 255, 0.065),
+      rgba(255, 255, 255, 0.012)
+    );
+  box-shadow:
+    0 25px 75px rgba(0, 0, 0, 0.45),
+    0 0 55px rgba(125, 92, 255, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+.plan-card.premium:hover {
+  border-color: rgba(155, 130, 255, 0.45);
+  box-shadow:
+    0 35px 95px rgba(0, 0, 0, 0.55),
+    0 0 70px rgba(125, 92, 255, 0.12);
+}
+
+/* =========================================================
+   POPULAR BADGE
+========================================================= */
+
+.plan-popular {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 7px 11px;
+  border: 1px solid rgba(125, 92, 255, 0.25);
+  border-radius: 999px;
+  background: rgba(125, 92, 255, 0.1);
+  color: #a995ff;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   PLAN HEADER
+========================================================= */
+
+.plan-label {
+  margin-bottom: 9px;
+  color: #77727f;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.plan-card h2 {
+  margin: 0;
+  color: #f5f1fa;
+  font-family: "Instrument Serif", serif;
+  font-size: 42px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.025em;
+}
+
+.plan-description {
+  min-height: 48px;
+  margin: 17px 0 0;
+  color: #69656f;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+/* =========================================================
+   PRICE
+========================================================= */
+
+.plan-price {
+  margin-top: 30px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.065);
+}
+
+.plan-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+}
+
+.plan-price strong {
+  color: #f5f1fb;
+  font-family: "Instrument Serif", serif;
+  font-size: 55px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+}
+
+.plan-price span {
+  color: #65606b;
+  font-size: 11px;
+  font-weight: 300;
+}
+
+.plan-yearly-note {
+  margin-top: 8px;
+  color: #5e5965;
+  font-size: 10px;
+}
+
+/* Premium price */
+
+.plan-card.premium .plan-price strong {
+  color: #d8d0ff;
+}
+
+.plan-card.premium .plan-yearly-note {
+  color: #8274a9;
+}
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.plan-features {
+  flex: 1;
+  padding: 24px 0 20px;
+}
+
+.plan-features-title {
+  margin-bottom: 14px;
+  color: #625d68;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.plan-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 13px;
+  color: #aaa5b0;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.45;
+}
+
+.plan-feature svg {
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+  margin-top: 1px;
+  color: #8170d8;
+  stroke-width: 1.8;
+}
+
+.plan-card.premium .plan-feature svg {
+  color: #9b82ff;
+}
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.plan-btn {
+  width: 100%;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 999px;
+  font-family: "Barlow", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    color 0.25s ease;
+}
+
+.plan-btn.free {
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.035);
+  color: #aaa5af;
+}
+
+.plan-btn.free:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.065);
+  color: #fff;
+}
+
+.plan-btn.premium {
+  border: 1px solid rgba(170, 150, 255, 0.45);
+  background:
+    linear-gradient(
+      135deg,
+      #6745ed,
+      #8b6cff
+    );
+  color: #fff;
+  box-shadow:
+    0 9px 30px rgba(125, 92, 255, 0.23);
+}
+
+.plan-btn.premium:hover {
+  transform: translateY(-3px);
+  border-color: #ad9aff;
+  background:
+    linear-gradient(
+      135deg,
+      #7958f5,
+      #9b7fff
+    );
+  box-shadow:
+    0 14px 40px rgba(125, 92, 255, 0.35);
+}
+
+.plan-btn.family {
+  border: 1px solid rgba(125, 92, 255, 0.2);
+  background: rgba(125, 92, 255, 0.055);
+  color: #a995ff;
+}
+
+.plan-btn.family:hover {
+  transform: translateY(-2px);
+  border-color: rgba(155, 130, 255, 0.4);
+  background: rgba(125, 92, 255, 0.1);
+  color: #d0c6ff;
+}
+
+/* =========================================================
+   CURRENT PLAN
+========================================================= */
+
+.plan-current {
+  margin-top: 10px;
+  text-align: center;
+  color: #55515c;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   FOOTER NOTE
+========================================================= */
+
+.plans-footer-note {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: 35px auto 0;
+  color: #504c55;
+  font-size: 10px;
+  font-weight: 300;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.plans-loader {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #030303;
+  color: #625d68;
+  font-family: "Barlow", sans-serif;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+  .plans-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .plans-back-btn {
+    align-self: flex-start;
+  }
+
+  .plans-grid {
+    grid-template-columns: 1fr;
+    max-width: 620px;
+  }
+
+  .plan-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .plans-page {
+    padding: 55px 16px;
+  }
+
+  .plans-header {
+    margin-bottom: 42px;
+  }
+
+  .plans-header h1 {
+    font-size: clamp(55px, 15vw, 78px);
+  }
+
+  .plans-header p {
+    font-size: 13px;
+  }
+
+  .plans-back-btn {
+    width: 100%;
+  }
+
+  .plans-billing {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 35px;
+  }
+
+  .plans-billing-btn {
+    flex: 1;
+    padding: 0 12px;
+  }
+
+  .plans-grid {
+    gap: 13px;
+  }
+
+  .plan-card {
+    padding: 27px 23px 23px;
+    border-radius: 22px;
+  }
+
+  .plan-card h2 {
+    font-size: 37px;
+  }
+
+  .plan-price strong {
+    font-size: 49px;
+  }
+}
+
+@media (max-width: 450px) {
+  .plans-page {
+    padding: 45px 13px;
+  }
+
+  .plans-billing {
+    gap: 2px;
+  }
+
+  .plans-billing-btn {
+    font-size: 11px;
+    padding: 0 9px;
+  }
+
+  .plan-card {
+    padding: 24px 20px 20px;
+  }
+
+  .plan-popular {
+    top: 16px;
+    right: 16px;
+  }
+
+  .plan-description {
+    min-height: auto;
+  }
+}
+/* =========================================================
+   PLAN ICON
+========================================================= */
+
+.plan-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(125, 92, 255, 0.18);
+  border-radius: 16px;
+  background: rgba(125, 92, 255, 0.08);
+  color: #917bff;
+}
+
+.plan-icon svg {
+  stroke-width: 1.6;
+}
+
+/* =========================================================
+   MESSAGES
+========================================================= */
+
+.plans-message {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1400px;
+  margin: -25px auto 35px;
+}
+
+.plans-message-error,
+.plans-message-success {
+  padding: 13px 17px;
+  border-radius: 14px;
+  font-size: 12px;
+}
+
+.plans-message-error {
+  border: 1px solid rgba(239, 68, 68, 0.18);
+  background: rgba(239, 68, 68, 0.06);
+  color: #fca5a5;
+}
+
+.plans-message-success {
+  border: 1px solid rgba(74, 222, 128, 0.18);
+  background: rgba(74, 222, 128, 0.06);
+  color: #86efac;
+}
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.plans-empty {
+  position: relative;
+  z-index: 2;
+  max-width: 550px;
+  margin: 80px auto;
+  padding: 55px 30px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.plans-empty svg {
+  margin: 0 auto 18px;
+  color: #625d68;
+}
+
+.plans-empty h2 {
+  margin: 0;
+  color: #ddd8e2;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.plans-empty p {
+  margin-top: 8px;
+  color: #625d68;
+  font-size: 12px;
+}
+
+.plans-empty button {
+  margin-top: 22px;
+  padding: 11px 20px;
+  border: 1px solid rgba(125, 92, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(125, 92, 255, 0.08);
+  color: #a995ff;
+  cursor: pointer;
+}
+
+/* =========================================================
+   PAYMENT MODAL
+========================================================= */
+
+.payment-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.payment-modal {
+  width: 100%;
+  max-width: 480px;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 26px;
+  background:
+    radial-gradient(
+      circle at 90% 0%,
+      rgba(125, 92, 255, 0.12),
+      transparent 35%
+    ),
+    #0d0a12;
+  box-shadow:
+    0 35px 100px rgba(0, 0, 0, 0.65),
+    0 0 50px rgba(125, 92, 255, 0.06);
+}
+
+/* Header */
+
+.payment-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.payment-icon {
+  width: 45px;
+  height: 45px;
+  margin-bottom: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(125, 92, 255, 0.2);
+  border-radius: 14px;
+  background: rgba(125, 92, 255, 0.08);
+  color: #9b82ff;
+}
+
+.payment-header h2 {
+  margin: 0;
+  color: #f1edf5;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.payment-header p {
+  max-width: 320px;
+  margin: 8px 0 0;
+  color: #66616c;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.payment-close {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.025);
+  color: #65606b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.payment-close:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/* Summary */
+
+.payment-summary {
+  margin-top: 25px;
+  padding: 19px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.payment-summary-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.payment-summary span {
+  display: block;
+  color: #5f5a65;
+  font-size: 10px;
+}
+
+.payment-summary h3 {
+  margin: 5px 0 0;
+  color: #e8e3ed;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.payment-billing {
+  text-align: right;
+}
+
+.payment-billing strong {
+  display: block;
+  margin-top: 5px;
+  color: #aaa2b2;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+.payment-divider {
+  height: 1px;
+  margin: 18px 0;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.payment-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.payment-total span {
+  color: #77717d;
+  font-size: 12px;
+}
+
+.payment-total strong {
+  color: #f2edf8;
+  font-family: "Instrument Serif", serif;
+  font-size: 29px;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Error */
+
+.payment-error {
+  margin-top: 13px;
+  padding: 12px 14px;
+  border: 1px solid rgba(239, 68, 68, 0.18);
+  border-radius: 13px;
+  background: rgba(239, 68, 68, 0.06);
+  color: #fca5a5;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* Button */
+
+.payment-button {
+  width: 100%;
+  height: 49px;
+  margin-top: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid rgba(170, 150, 255, 0.4);
+  border-radius: 999px;
+  background: linear-gradient(
+    135deg,
+    #6745ed,
+    #8b6cff
+  );
+  color: #fff;
+  font-family: "Barlow", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow:
+    0 10px 35px rgba(125, 92, 255, 0.2);
+  transition: all 0.25s ease;
+}
+
+.payment-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow:
+    0 15px 45px rgba(125, 92, 255, 0.3);
+}
+
+.payment-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.payment-secure {
+  margin: 13px 0 0;
+  color: #4f4b54;
+  font-size: 9px;
+  text-align: center;
+}
+
+@media (max-width: 500px) {
+  .payment-modal {
+    padding: 23px 20px;
+    border-radius: 22px;
+  }
+
+  .payment-header h2 {
+    font-size: 19px;
+  }
+
+  .payment-summary {
+    padding: 16px;
+  }
+}

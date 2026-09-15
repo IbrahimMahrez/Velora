@@ -1,0 +1,3304 @@
+
+/* =========================================================
+   VELORA — SUBSCRIPTIONS
+   Liquid Glass / Cinematic UI
+========================================================= */
+
+.subscriptions-page {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  color: #f5f5f5;
+  background: #030303;
+  font-family: "Inter", sans-serif;
+}
+
+/* =========================================================
+   AMBIENT BACKGROUND
+========================================================= */
+
+.subscriptions-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 75% 10%,
+      rgba(125, 92, 255, 0.08),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 15% 80%,
+      rgba(0, 180, 255, 0.06),
+      transparent 25%
+    ),
+    #030303;
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(100px);
+  opacity: 0.35;
+  animation: floatingOrb 16s ease-in-out infinite;
+}
+
+.orb-one {
+  width: 380px;
+  height: 380px;
+  right: 8%;
+  top: 4%;
+  background: rgba(108, 70, 255, 0.14);
+}
+
+.orb-two {
+  width: 320px;
+  height: 320px;
+  left: 12%;
+  bottom: 5%;
+  background: rgba(0, 170, 255, 0.1);
+  animation-delay: -5s;
+}
+
+.orb-three {
+  width: 220px;
+  height: 220px;
+  right: 35%;
+  bottom: 18%;
+  background: rgba(255, 255, 255, 0.055);
+  animation-delay: -9s;
+}
+
+@keyframes floatingOrb {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  35% {
+    transform: translate3d(-40px, 30px, 0) scale(1.08);
+  }
+
+  70% {
+    transform: translate3d(30px, -35px, 0) scale(0.94);
+  }
+}
+
+.ambient-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.16;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 80px 80px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    black,
+    transparent 85%
+  );
+}
+
+.ambient-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.subscriptions-content {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 42px 34px 70px;
+}
+
+.subscriptions-header,
+.subscription-stats,
+.subscriptions-layout {
+  width: 100%;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.subscriptions-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 30px;
+  margin-bottom: 34px;
+}
+
+.page-eyebrow,
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: #858585;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.eyebrow-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #b6a2ff;
+
+  box-shadow:
+    0 0 12px rgba(142, 112, 255, 0.9);
+
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+.subscriptions-heading h1 {
+  margin: 10px 0 7px;
+
+  font-size: clamp(38px, 4vw, 68px);
+  line-height: 0.95;
+
+  letter-spacing: -0.055em;
+  font-weight: 500;
+}
+
+.subscriptions-heading h1 span {
+  display: block;
+  color: #737373;
+}
+
+.subscriptions-heading p {
+  max-width: 520px;
+
+  margin: 17px 0 0;
+
+  color: #777;
+
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   ADD BUTTON
+========================================================= */
+
+.add-subscription-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+
+  height: 48px;
+  padding: 0 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+
+  color: #050505;
+  background: #f5f5f5;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.35);
+
+  transition:
+    box-shadow 0.3s ease,
+    background 0.3s ease,
+    transform 0.25s ease;
+}
+
+.add-subscription-btn:hover {
+  background: #ffffff;
+
+  box-shadow:
+    0 15px 45px rgba(255, 255, 255, 0.1);
+
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.subscription-stats {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.25fr)
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  gap: 13px;
+
+  margin-bottom: 14px;
+}
+
+.subscription-stat {
+  position: relative;
+
+  min-height: 128px;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  padding: 20px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.055),
+      rgba(255, 255, 255, 0.018)
+    );
+
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.05),
+    0 18px 60px rgba(0, 0, 0, 0.2);
+}
+
+.stat-primary {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(155, 132, 255, 0.11),
+      rgba(255, 255, 255, 0.025)
+    );
+}
+
+.stat-glow {
+  position: absolute;
+
+  width: 160px;
+  height: 160px;
+
+  left: -70px;
+  bottom: -100px;
+
+  border-radius: 50%;
+
+  background: rgba(135, 105, 255, 0.2);
+
+  filter: blur(55px);
+}
+
+.stat-icon-wrap {
+  position: relative;
+  z-index: 1;
+
+  width: 43px;
+  height: 43px;
+
+  display: grid;
+  place-items: center;
+
+  flex-shrink: 0;
+
+  border-radius: 14px;
+
+  color: #b9a9ff;
+
+  background: rgba(146, 118, 255, 0.09);
+
+  border: 1px solid rgba(146, 118, 255, 0.15);
+}
+
+.stat-icon-wrap.green {
+  color: #8ee0bb;
+  background: rgba(70, 190, 140, 0.08);
+  border-color: rgba(70, 190, 140, 0.12);
+}
+
+.stat-icon-wrap.purple {
+  color: #9fb9ff;
+  background: rgba(100, 130, 255, 0.08);
+  border-color: rgba(100, 130, 255, 0.13);
+}
+
+.stat-content {
+  position: relative;
+  z-index: 1;
+
+  min-width: 0;
+}
+
+.stat-content > span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #747474;
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+}
+
+.stat-content strong {
+  display: block;
+
+  color: #f2f2f2;
+
+  font-size: 25px;
+  line-height: 1;
+
+  font-weight: 600;
+
+  letter-spacing: -0.035em;
+}
+
+.stat-content strong small {
+  color: #888;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.stat-content p {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  margin: 8px 0 0;
+
+  color: #606060;
+
+  font-size: 10px;
+}
+
+.renewal-name {
+  max-width: 180px;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stat-arrow {
+  position: absolute;
+
+  right: 18px;
+  top: 18px;
+
+  color: #555;
+}
+
+/* =========================================================
+   MAIN LAYOUT
+========================================================= */
+
+.subscriptions-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    320px;
+
+  gap: 14px;
+
+  align-items: stretch;
+}
+
+.glass-panel {
+  border: 1px solid rgba(255, 255, 255, 0.085);
+  border-radius: 25px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(18, 18, 18, 0.8),
+      rgba(8, 8, 8, 0.65)
+    );
+
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.045),
+    0 25px 70px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
+
+.subscriptions-main-card {
+  min-width: 0;
+  padding: 25px;
+}
+
+.main-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 22px;
+}
+
+.main-card-header h2,
+.renewal-panel-header h2 {
+  margin: 7px 0 0;
+
+  color: #eeeeee;
+
+  font-size: 20px;
+  letter-spacing: -0.035em;
+  font-weight: 500;
+}
+
+.service-count {
+  display: grid;
+  place-items: center;
+
+  min-width: 30px;
+  height: 30px;
+
+  padding: 0 9px;
+
+  border-radius: 999px;
+
+  color: #8e8e8e;
+
+  background: rgba(255, 255, 255, 0.045);
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  font-size: 11px;
+}
+
+/* =========================================================
+   TOOLBAR
+========================================================= */
+
+.list-toolbar {
+  display: flex;
+  gap: 10px;
+
+  margin-bottom: 15px;
+}
+
+.search-box {
+  flex: 1;
+
+  height: 43px;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 0 13px;
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 13px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.search-box:focus-within {
+  border-color: rgba(157, 135, 255, 0.3);
+
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.search-box svg {
+  flex-shrink: 0;
+  color: #5e5e5e;
+}
+
+.search-box input {
+  width: 100%;
+
+  border: 0;
+  outline: 0;
+
+  color: #ddd;
+  background: transparent;
+
+  font-size: 12px;
+}
+
+.search-box input::placeholder {
+  color: #555;
+}
+
+.search-box button {
+  display: grid;
+  place-items: center;
+
+  width: 24px;
+  height: 24px;
+
+  border: 0;
+  border-radius: 50%;
+
+  color: #777;
+  background: rgba(255, 255, 255, 0.06);
+
+  cursor: pointer;
+}
+
+.filter-wrapper select {
+  height: 43px;
+
+  min-width: 145px;
+
+  padding: 0 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 13px;
+
+  outline: none;
+
+  color: #a4a4a4;
+  background: rgba(255, 255, 255, 0.025);
+
+  font-size: 11px;
+
+  cursor: pointer;
+}
+
+.filter-wrapper select option {
+  color: #ddd;
+  background: #101010;
+}
+
+/* =========================================================
+   SUBSCRIPTION CARDS
+========================================================= */
+
+.subscription-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+.subscription-card {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(180px, 1.5fr)
+    minmax(130px, 0.75fr)
+    minmax(170px, 0.9fr)
+    auto;
+
+  align-items: center;
+
+  gap: 18px;
+
+  min-height: 90px;
+
+  padding: 15px 16px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.015)
+    );
+
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.subscription-card:hover {
+  border-color: rgba(255, 255, 255, 0.13);
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.065),
+      rgba(255, 255, 255, 0.02)
+    );
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.2);
+
+  transform: translateY(-1px);
+}
+
+.card-light {
+  position: absolute;
+
+  width: 130px;
+  height: 130px;
+
+  left: -70px;
+  top: -90px;
+
+  border-radius: 50%;
+
+  filter: blur(45px);
+
+  opacity: 0;
+
+  transition: opacity 0.4s ease;
+}
+
+.subscription-card:hover .card-light {
+  opacity: 1;
+}
+
+.subscription-card.violet .card-light {
+  background: rgba(130, 90, 255, 0.18);
+}
+
+.subscription-card.blue .card-light {
+  background: rgba(70, 130, 255, 0.16);
+}
+
+.subscription-card.green .card-light {
+  background: rgba(60, 190, 140, 0.14);
+}
+
+.subscription-card.rose .card-light {
+  background: rgba(255, 80, 120, 0.13);
+}
+
+.subscription-card.amber .card-light {
+  background: rgba(255, 190, 70, 0.13);
+}
+
+.subscription-card.cyan .card-light {
+  background: rgba(40, 200, 240, 0.13);
+}
+
+.subscription-card.orange .card-light {
+  background: rgba(255, 130, 50, 0.13);
+}
+
+.subscription-card.pink .card-light {
+  background: rgba(255, 70, 180, 0.13);
+}
+
+.subscription-card.slate .card-light {
+  background: rgba(180, 180, 180, 0.09);
+}
+
+/* =========================================================
+   SERVICE
+========================================================= */
+
+.service-info {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  min-width: 0;
+}
+
+.service-icon {
+  width: 45px;
+  height: 45px;
+
+  display: grid;
+  place-items: center;
+
+  flex-shrink: 0;
+
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.055);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  font-size: 19px;
+
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.service-info h3 {
+  margin: 0;
+
+  color: #eeeeee;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  letter-spacing: -0.01em;
+}
+
+.service-meta {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-top: 6px;
+
+  color: #626262;
+
+  font-size: 9px;
+
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+
+.service-meta i {
+  width: 3px;
+  height: 3px;
+
+  border-radius: 50%;
+
+  background: #505050;
+}
+
+/* =========================================================
+   PRICE
+========================================================= */
+
+.subscription-price {
+  position: relative;
+  z-index: 1;
+}
+
+.subscription-price > span,
+.renewal-info span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #555;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+}
+
+.subscription-price strong {
+  display: block;
+
+  color: #ddd;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.subscription-price strong small {
+  color: #666;
+  font-size: 9px;
+}
+
+.subscription-price em {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #555;
+
+  font-size: 9px;
+  font-style: normal;
+}
+
+/* =========================================================
+   RENEWAL
+========================================================= */
+
+.renewal-info {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.renewal-icon {
+  width: 32px;
+  height: 32px;
+
+  display: grid;
+  place-items: center;
+
+  flex-shrink: 0;
+
+  border-radius: 10px;
+
+  color: #888;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.renewal-info strong {
+  display: block;
+
+  color: #cfcfcf;
+
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.renewal-info > small {
+  margin-left: auto;
+
+  padding: 4px 7px;
+
+  border-radius: 999px;
+
+  color: #666;
+
+  background: rgba(255, 255, 255, 0.035);
+
+  font-size: 8px;
+}
+
+.renewal-info > small.urgent {
+  color: #ff9eae;
+  background: rgba(255, 70, 100, 0.07);
+}
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.subscription-actions {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  gap: 5px;
+}
+
+.subscription-actions button {
+  width: 31px;
+  height: 31px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 9px;
+
+  color: #666;
+  background: rgba(255, 255, 255, 0.025);
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.subscription-actions button:hover {
+  color: #eee;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  transform: translateY(-2px);
+}
+
+.subscription-actions .delete-action:hover {
+  color: #ff7d8d;
+
+  border-color: rgba(255, 80, 100, 0.2);
+
+  background: rgba(255, 80, 100, 0.07);
+}
+
+.subscription-actions .mark-used-action {
+  width: auto;
+  padding: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.subscription-actions .mark-used-action:hover {
+  color: #4ade80;
+  border-color: rgba(74, 222, 128, 0.25);
+  background: rgba(74, 222, 128, 0.08);
+}
+
+.subscription-actions .mark-used-action.auto-post-off {
+  opacity: 0.45;
+}
+
+/* =========================================================
+   LOADING / EMPTY
+========================================================= */
+
+.subscriptions-loading {
+  min-height: 280px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+
+  color: #555;
+
+  font-size: 11px;
+}
+
+.subscriptions-loading .ant-spin {
+  color: #aaa;
+}
+
+.subscriptions-empty {
+  min-height: 280px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.empty-icon {
+  width: 62px;
+  height: 62px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 17px;
+
+  border-radius: 20px;
+
+  color: #8d8d8d;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.subscriptions-empty h3 {
+  margin: 0;
+
+  color: #ddd;
+
+  font-size: 15px;
+}
+
+.subscriptions-empty p {
+  max-width: 300px;
+
+  margin: 8px 0 17px;
+
+  color: #5f5f5f;
+
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.subscriptions-empty button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 10px 15px;
+
+  border: 0;
+  border-radius: 999px;
+
+  color: #050505;
+  background: #eee;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+/* =========================================================
+   RENEWAL PANEL
+========================================================= */
+
+.renewal-panel {
+  padding: 24px;
+}
+
+.renewal-panel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.clock-icon {
+  width: 35px;
+  height: 35px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 11px;
+
+  color: #888;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.renewal-summary {
+  margin-top: 25px;
+
+  padding: 17px;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.015)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.renewal-summary > span {
+  display: block;
+
+  color: #5d5d5d;
+
+  font-size: 9px;
+
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.renewal-summary strong {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #eee;
+
+  font-size: 25px;
+
+  letter-spacing: -0.04em;
+}
+
+.renewal-summary strong small {
+  color: #666;
+
+  font-size: 9px;
+  font-weight: 400;
+}
+
+.renewal-summary p {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  margin: 8px 0 0;
+
+  color: #777;
+
+  font-size: 10px;
+}
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.renewal-timeline {
+  margin-top: 25px;
+}
+
+.timeline-item {
+  display: flex;
+
+  gap: 13px;
+
+  min-height: 63px;
+}
+
+.timeline-line {
+  position: relative;
+
+  width: 14px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  justify-content: center;
+}
+
+.timeline-dot {
+  position: relative;
+  z-index: 2;
+
+  width: 10px;
+  height: 10px;
+
+  margin-top: 5px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: #161616;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.timeline-dot span {
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #a795ff;
+
+  box-shadow:
+    0 0 10px rgba(160, 135, 255, 0.9);
+}
+
+.timeline-connector {
+  position: absolute;
+
+  top: 15px;
+  bottom: 0;
+
+  width: 1px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.13),
+      rgba(255, 255, 255, 0.02)
+    );
+}
+
+.timeline-content {
+  flex: 1;
+
+  display: flex;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  padding-bottom: 17px;
+}
+
+.timeline-content > div:first-child {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.timeline-content strong {
+  color: #ccc;
+
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.timeline-content span {
+  color: #555;
+
+  font-size: 9px;
+}
+
+.timeline-right {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-end;
+
+  gap: 4px;
+}
+
+.timeline-right b {
+  color: #aaa;
+
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.timeline-right small {
+  color: #555;
+
+  font-size: 8px;
+}
+
+.timeline-right small.urgent {
+  color: #ff8798;
+}
+
+.timeline-empty {
+  min-height: 250px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.timeline-empty > div {
+  width: 48px;
+  height: 48px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 13px;
+
+  border-radius: 15px;
+
+  color: #7ad4ad;
+
+  background: rgba(80, 190, 140, 0.07);
+
+  border: 1px solid rgba(80, 190, 140, 0.1);
+}
+
+.timeline-empty h3 {
+  margin: 0;
+
+  color: #ccc;
+
+  font-size: 13px;
+}
+
+.timeline-empty p {
+  margin: 7px 0 0;
+
+  color: #555;
+
+  font-size: 10px;
+}
+
+.timeline-footer {
+  width: 100%;
+  height: 39px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 8px;
+
+  padding: 0 11px;
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 11px;
+
+  color: #666;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  font-size: 9px;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.timeline-footer:hover {
+  color: #aaa;
+
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* =========================================================
+   ADD / EDIT MODAL
+========================================================= */
+
+.subscription-modal-backdrop {
+  position: fixed;
+  inset: 0;
+
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px;
+
+  background: rgba(0, 0, 0, 0.72);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.subscription-modal {
+  position: relative;
+
+  width: min(620px, 100%);
+
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  padding: 28px;
+
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 27px;
+
+  background:
+    radial-gradient(
+      circle at 90% 0%,
+      rgba(125, 92, 255, 0.09),
+      transparent 34%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(28, 28, 28, 0.97),
+      rgba(9, 9, 9, 0.98)
+    );
+
+  box-shadow:
+    0 40px 120px rgba(0, 0, 0, 0.7),
+    inset 0 1px rgba(255, 255, 255, 0.07);
+
+  scrollbar-width: thin;
+}
+
+.subscription-modal::-webkit-scrollbar {
+  width: 5px;
+}
+
+.subscription-modal::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+}
+
+.modal-glow {
+  position: absolute;
+
+  width: 250px;
+  height: 150px;
+
+  right: -100px;
+  top: -100px;
+
+  border-radius: 50%;
+
+  background: rgba(120, 90, 255, 0.13);
+
+  filter: blur(60px);
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   MODAL HEADER
+========================================================= */
+
+.modal-header {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 25px;
+}
+
+.modal-header > div > span {
+  color: #777;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+}
+
+.modal-header h2 {
+  margin: 7px 0 5px;
+
+  color: #eee;
+
+  font-size: 24px;
+  font-weight: 500;
+
+  letter-spacing: -0.04em;
+}
+
+.modal-header p {
+  margin: 0;
+
+  color: #5e5e5e;
+
+  font-size: 10px;
+
+  line-height: 1.6;
+}
+
+.modal-header > button {
+  width: 35px;
+  height: 35px;
+
+  display: grid;
+  place-items: center;
+
+  flex-shrink: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+
+  color: #666;
+
+  background: rgba(255, 255, 255, 0.035);
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.modal-header > button:hover {
+  color: #eee;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  transform: rotate(3deg);
+}
+
+.modal-header > button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   NEW FORM
+========================================================= */
+
+.subscription-form {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+/* =========================================================
+   FORM INTRO
+========================================================= */
+
+.form-intro {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  padding: 15px;
+
+  border: 1px solid rgba(255, 255, 255, 0.065);
+  border-radius: 17px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.015)
+    );
+}
+
+.form-intro-icon {
+  width: 43px;
+  height: 43px;
+
+  display: grid;
+  place-items: center;
+
+  flex-shrink: 0;
+
+  border-radius: 13px;
+
+  color: #b5a6ff;
+
+  background: rgba(145, 120, 255, 0.08);
+
+  border: 1px solid rgba(145, 120, 255, 0.13);
+
+  box-shadow:
+    0 0 30px rgba(120, 90, 255, 0.06);
+}
+
+.form-intro span {
+  display: block;
+
+  color: #777;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.15em;
+}
+
+.form-intro p {
+  margin: 4px 0 0;
+
+  color: #555;
+
+  font-size: 10px;
+}
+
+/* =========================================================
+   FORM SECTIONS
+========================================================= */
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.form-section-title {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 11px;
+
+  margin-bottom: 1px;
+}
+
+.form-section-title > span {
+  min-width: 25px;
+
+  padding-top: 2px;
+
+  color: #4d4d4d;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.15em;
+}
+
+.form-section-title strong {
+  display: block;
+
+  color: #d9d9d9;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+.form-section-title small {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #555;
+
+  font-size: 9px;
+}
+
+/* =========================================================
+   FIELDS
+========================================================= */
+
+.field {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.field label {
+  color: #6d6d6d;
+
+  font-size: 9px;
+  font-weight: 600;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+.field-shell {
+  min-height: 49px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 0 13px;
+
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 13px;
+
+  background: rgba(255, 255, 255, 0.028);
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.field-shell:hover {
+  border-color: rgba(255, 255, 255, 0.11);
+}
+
+.field-shell:focus-within {
+  border-color: rgba(157, 135, 255, 0.34);
+
+  background: rgba(255, 255, 255, 0.045);
+
+  box-shadow:
+    0 0 0 4px rgba(157, 135, 255, 0.035),
+    0 10px 35px rgba(0, 0, 0, 0.15);
+}
+
+.field-shell > svg {
+  flex-shrink: 0;
+
+  color: #555;
+}
+
+.field-shell input,
+.field-shell select {
+  width: 100%;
+
+  min-width: 0;
+
+  height: 47px;
+
+  padding: 0;
+
+  border: 0;
+  outline: 0;
+
+  color: #e5e5e5;
+
+  background: transparent;
+
+  font-family: inherit;
+  font-size: 11px;
+}
+
+.field-shell input::placeholder {
+  color: #494949;
+}
+
+.field-shell select {
+  cursor: pointer;
+
+  appearance: none;
+}
+
+.field-shell select option {
+  color: #ddd;
+  background: #111;
+}
+
+.field-shell input[type="date"] {
+  color-scheme: dark;
+}
+
+.currency {
+  flex-shrink: 0;
+
+  color: #666;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+}
+
+.select-shell {
+  padding-right: 10px;
+}
+
+.select-shell > svg {
+  flex-shrink: 0;
+
+  color: #4c4c4c;
+
+  transform: rotate(90deg);
+}
+
+/* =========================================================
+   FORM GRID
+========================================================= */
+
+.form-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+}
+
+/* =========================================================
+   BILLING CYCLE
+========================================================= */
+
+.cycle-picker {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 7px;
+}
+
+.cycle-picker button {
+  min-height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  border: 1px solid rgba(255, 255, 255, 0.065);
+  border-radius: 12px;
+
+  color: #666;
+
+  background: rgba(255, 255, 255, 0.02);
+
+  cursor: pointer;
+
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 600;
+
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    transform 0.2s ease;
+}
+
+.cycle-picker button:hover {
+  color: #aaa;
+
+  border-color: rgba(255, 255, 255, 0.13);
+
+  background: rgba(255, 255, 255, 0.045);
+
+  transform: translateY(-1px);
+}
+
+.cycle-picker button.active {
+  color: #f2f2f2;
+
+  border-color: rgba(160, 140, 255, 0.25);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(145, 120, 255, 0.11),
+      rgba(255, 255, 255, 0.035)
+    );
+
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.06),
+    0 8px 25px rgba(80, 60, 180, 0.08);
+}
+
+.cycle-picker button.active svg {
+  color: #b5a6ff;
+}
+
+/* =========================================================
+   MODAL ACTIONS
+========================================================= */
+
+.modal-actions {
+  display: grid;
+
+  grid-template-columns: 0.65fr 1.35fr;
+
+  gap: 9px;
+
+  margin-top: 3px;
+}
+
+.cancel-btn,
+.save-btn {
+  height: 46px;
+
+  border-radius: 12px;
+
+  font-family: inherit;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.cancel-btn {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  color: #777;
+
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.cancel-btn:hover {
+  color: #ddd;
+
+  background: rgba(255, 255, 255, 0.055);
+
+  border-color: rgba(255, 255, 255, 0.11);
+}
+
+.save-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  color: #050505;
+
+  background: #eeeeee;
+}
+
+.save-btn:hover {
+  background: #ffffff;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 35px rgba(255, 255, 255, 0.08);
+}
+
+.save-btn:disabled,
+.cancel-btn:disabled {
+  opacity: 0.45;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+/* =========================================================
+   DELETE MODAL
+========================================================= */
+
+.delete-modal-backdrop {
+  position: fixed;
+  inset: 0;
+
+  z-index: 2000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(0, 0, 0, 0.76);
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+.delete-modal {
+  position: relative;
+
+  width: min(430px, 100%);
+
+  padding: 27px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(255, 70, 80, 0.07),
+      transparent 38%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(28, 28, 29, 0.98),
+      rgba(9, 9, 10, 0.99)
+    );
+
+  box-shadow:
+    0 40px 100px rgba(0, 0, 0, 0.7),
+    inset 0 1px rgba(255, 255, 255, 0.055);
+}
+
+.delete-modal::before {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  left: -110px;
+  bottom: -120px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 60, 70, 0.07);
+
+  filter: blur(50px);
+
+  pointer-events: none;
+}
+
+.delete-icon-wrap {
+  position: relative;
+  z-index: 1;
+
+  width: 51px;
+  height: 51px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 17px;
+
+  border-radius: 16px;
+
+  color: #ff7882;
+
+  background: rgba(255, 70, 80, 0.08);
+
+  border: 1px solid rgba(255, 70, 80, 0.15);
+
+  box-shadow:
+    0 0 30px rgba(255, 60, 70, 0.05);
+}
+
+.delete-eyebrow {
+  position: relative;
+  z-index: 1;
+
+  color: #666;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+}
+
+.delete-modal h2 {
+  position: relative;
+  z-index: 1;
+
+  margin: 7px 0 9px;
+
+  color: #eee;
+
+  font-size: 23px;
+
+  font-weight: 500;
+
+  letter-spacing: -0.04em;
+}
+
+.delete-modal p {
+  position: relative;
+  z-index: 1;
+
+  margin: 0;
+
+  color: #626262;
+
+  font-size: 11px;
+
+  line-height: 1.75;
+}
+
+.delete-modal-actions {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 8px;
+
+  margin-top: 23px;
+}
+
+.delete-cancel-btn,
+.delete-confirm-btn {
+  height: 46px;
+
+  border-radius: 12px;
+
+  font-family: inherit;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.2s ease,
+    opacity 0.25s ease;
+}
+
+.delete-cancel-btn {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  color: #777;
+
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.delete-cancel-btn:hover {
+  color: #ddd;
+
+  background: rgba(255, 255, 255, 0.055);
+
+  border-color: rgba(255, 255, 255, 0.11);
+}
+
+.delete-confirm-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  border: 1px solid rgba(255, 80, 90, 0.18);
+
+  color: #fff;
+
+  background: rgba(215, 62, 72, 0.9);
+}
+
+.delete-confirm-btn:hover {
+  background: #e34850;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 10px 30px rgba(220, 60, 70, 0.12);
+}
+
+.delete-confirm-btn:disabled,
+.delete-cancel-btn:disabled {
+  opacity: 0.45;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1250px) {
+  .subscriptions-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .renewal-panel {
+    min-height: auto;
+  }
+
+  .renewal-timeline {
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+  }
+
+  .timeline-connector {
+    display: none;
+  }
+
+  .timeline-item {
+    min-height: 70px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .subscription-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stat-primary {
+    grid-column: span 2;
+  }
+
+  .subscription-card {
+    grid-template-columns:
+      1.4fr
+      1fr
+      auto;
+  }
+
+  .renewal-info {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .subscriptions-content {
+    padding: 28px 18px 50px;
+  }
+
+  .subscriptions-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .subscriptions-heading h1 {
+    font-size: 43px;
+  }
+
+  .add-subscription-btn {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  .subscription-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-primary {
+    grid-column: auto;
+  }
+
+  .subscription-stat {
+    min-height: 105px;
+  }
+
+  .subscriptions-main-card,
+  .renewal-panel {
+    padding: 18px;
+  }
+
+  .list-toolbar {
+    flex-direction: column;
+  }
+
+  .filter-wrapper select {
+    width: 100%;
+  }
+
+  .subscription-card {
+    grid-template-columns: 1fr auto;
+
+    gap: 13px;
+
+    padding: 15px;
+  }
+
+  .subscription-price {
+    grid-column: 1;
+  }
+
+  .subscription-actions {
+    grid-column: 2;
+    grid-row: 1;
+
+    align-self: start;
+  }
+
+  .renewal-info {
+    display: flex;
+
+    grid-column: 1 / -1;
+
+    padding-top: 10px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .renewal-timeline {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .subscriptions-heading h1 {
+    font-size: 38px;
+  }
+
+  .subscription-modal-backdrop {
+    padding: 12px;
+  }
+
+  .subscription-modal {
+    padding: 21px;
+
+    border-radius: 21px;
+
+    max-height: 93vh;
+  }
+
+  .modal-header h2 {
+    font-size: 20px;
+  }
+
+  .form-intro {
+    padding: 13px;
+  }
+
+  .cycle-picker {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .delete-modal {
+    padding: 22px;
+
+    border-radius: 21px;
+  }
+
+  .delete-modal-actions {
+    grid-template-columns: 1fr;
+  }
+}
+/* =========================================================
+   PREMIUM SUBSCRIPTION FORM
+   ========================================================= */
+
+.subscription-modal {
+  width: min(94vw, 680px);
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 0;
+  border-radius: 30px;
+  position: relative;
+
+  background:
+    radial-gradient(
+      circle at 90% 0%,
+      rgba(139, 92, 246, 0.13),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 0% 100%,
+      rgba(59, 130, 246, 0.07),
+      transparent 28%
+    ),
+    rgba(12, 12, 15, 0.97);
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+
+  box-shadow:
+    0 40px 100px rgba(0, 0, 0, 0.65),
+    inset 0 1px rgba(255, 255, 255, 0.05);
+
+  backdrop-filter: blur(35px);
+  -webkit-backdrop-filter: blur(35px);
+}
+
+.subscription-modal::-webkit-scrollbar {
+  width: 5px;
+}
+
+.subscription-modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.subscription-modal::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+}
+
+
+/* ---------------------------------------------------------
+   FORM
+   --------------------------------------------------------- */
+
+.subscription-form {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* ---------------------------------------------------------
+   HERO
+   --------------------------------------------------------- */
+
+.form-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  padding: 30px;
+
+  overflow: hidden;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.015)
+    );
+}
+
+.form-hero-icon {
+  width: 50px;
+  height: 50px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 16px;
+
+  color: #fff;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 255, 255, 0.035)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.08),
+    0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.form-hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.form-hero-content > span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+
+  color: #777;
+}
+
+.form-hero-content h3 {
+  margin: 0;
+
+  font-size: 23px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+
+  color: #f5f5f5;
+}
+
+.form-hero-content p {
+  margin: 6px 0 0;
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  color: #707070;
+}
+
+.form-hero-orb {
+  position: absolute;
+
+  width: 170px;
+  height: 170px;
+
+  right: -80px;
+  top: -100px;
+
+  border-radius: 50%;
+
+  background: rgba(139, 92, 246, 0.12);
+
+  filter: blur(45px);
+}
+
+
+/* ---------------------------------------------------------
+   FORM SECTIONS
+   --------------------------------------------------------- */
+
+.form-section {
+  padding: 25px 30px 0;
+}
+
+.form-section-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  margin-bottom: 17px;
+}
+
+.form-section-heading > span {
+  min-width: 28px;
+
+  padding-top: 2px;
+
+  font-family: monospace;
+  font-size: 10px;
+
+  color: #555;
+}
+
+.form-section-heading strong {
+  display: block;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: #e5e5e5;
+}
+
+.form-section-heading small {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 10px;
+
+  color: #606060;
+}
+
+
+/* ---------------------------------------------------------
+   FIELDS
+   --------------------------------------------------------- */
+
+.premium-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.premium-field label {
+  margin-left: 2px;
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  color: #686868;
+}
+
+
+/* ---------------------------------------------------------
+   INPUT
+   --------------------------------------------------------- */
+
+.input-shell {
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  padding: 0 14px;
+
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  border: 1px solid rgba(255, 255, 255, 0.075);
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.input-shell:hover {
+  background: rgba(255, 255, 255, 0.035);
+
+  border-color: rgba(255, 255, 255, 0.11);
+}
+
+.input-shell:focus-within {
+  background: rgba(255, 255, 255, 0.045);
+
+  border-color: rgba(255, 255, 255, 0.2);
+
+  box-shadow:
+    0 0 0 4px rgba(255, 255, 255, 0.025),
+    inset 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.input-icon {
+  width: 30px;
+  height: 30px;
+
+  display: grid;
+  place-items: center;
+
+  flex-shrink: 0;
+
+  border-radius: 9px;
+
+  color: #777;
+
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.input-shell input {
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  color: #f4f4f4;
+
+  font-size: 13px;
+}
+
+.input-shell input::placeholder {
+  color: #4f4f4f;
+}
+
+.input-status {
+  flex-shrink: 0;
+
+  padding: 4px 7px;
+
+  border-radius: 6px;
+
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+
+  color: #777;
+
+  background: rgba(255, 255, 255, 0.05);
+}
+
+
+/* ---------------------------------------------------------
+   GRID
+   --------------------------------------------------------- */
+
+.premium-grid {
+  display: grid;
+
+  grid-template-columns: 0.85fr 1.15fr;
+
+  gap: 12px;
+}
+
+
+/* ---------------------------------------------------------
+   PRICE
+   --------------------------------------------------------- */
+
+.price-shell {
+  padding-left: 8px;
+}
+
+.currency-label {
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 10px;
+
+  border-radius: 10px;
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+
+  color: #777;
+
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.price-shell input {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.price-suffix {
+  font-size: 9px;
+
+  color: #4f4f4f;
+}
+
+
+/* ---------------------------------------------------------
+   CATEGORY
+   --------------------------------------------------------- */
+
+.category-select-wrapper {
+  position: relative;
+
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 14px;
+
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  border: 1px solid rgba(255, 255, 255, 0.075);
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.category-select-wrapper:hover {
+  background: rgba(255, 255, 255, 0.04);
+
+  border-color: rgba(255, 255, 255, 0.13);
+}
+
+.category-current {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  flex: 1;
+}
+
+.category-current-icon {
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 10px;
+
+  font-size: 16px;
+
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.category-current strong {
+  display: block;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  color: #ddd;
+}
+
+.category-current small {
+  display: block;
+
+  margin-top: 2px;
+
+  font-size: 9px;
+
+  color: #5d5d5d;
+}
+
+.category-select-wrapper > svg {
+  color: #555;
+
+  transform: rotate(90deg);
+}
+
+.category-select-wrapper select {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  opacity: 0;
+
+  cursor: pointer;
+}
+
+
+/* ---------------------------------------------------------
+   BILLING CYCLE
+   --------------------------------------------------------- */
+
+.cycle-selector {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 8px;
+}
+
+.cycle-selector button {
+  position: relative;
+
+  min-height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  border-radius: 15px;
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  background: rgba(255, 255, 255, 0.025);
+
+  color: #666;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.cycle-selector button:hover {
+  color: #bbb;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  border-color: rgba(255, 255, 255, 0.12);
+
+  transform: translateY(-1px);
+}
+
+.cycle-selector button.active {
+  color: #f2f2f2;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.09),
+      rgba(255, 255, 255, 0.035)
+    );
+
+  border-color: rgba(255, 255, 255, 0.18);
+
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.07),
+    0 8px 25px rgba(0, 0, 0, 0.18);
+}
+
+.cycle-selector button.active svg {
+  color: #fff;
+}
+
+.cycle-active-dot {
+  position: absolute;
+
+  width: 4px;
+  height: 4px;
+
+  top: 8px;
+  right: 8px;
+
+  border-radius: 50%;
+
+  background: #fff;
+
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+
+/* ---------------------------------------------------------
+   DATE
+   --------------------------------------------------------- */
+
+.date-shell {
+  height: 62px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 0 14px;
+
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  border: 1px solid rgba(255, 255, 255, 0.075);
+
+  transition: 0.25s ease;
+}
+
+.date-shell:focus-within {
+  border-color: rgba(255, 255, 255, 0.18);
+
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.date-icon {
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  flex-shrink: 0;
+
+  border-radius: 10px;
+
+  color: #777;
+
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.date-content {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.date-content > span {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+
+  color: #555;
+}
+
+
+/* ---------------------------------------------------------
+   ANT DATE PICKER OVERRIDE
+   --------------------------------------------------------- */
+
+.date-content .ant-picker {
+  width: 100%;
+
+  padding: 0;
+
+  border: 0 !important;
+
+  background: transparent !important;
+
+  box-shadow: none !important;
+}
+
+.date-content .ant-picker-input {
+  display: flex;
+  align-items: center;
+}
+
+.date-content .ant-picker-input > input {
+  color: #ddd !important;
+
+  font-size: 12px !important;
+  font-weight: 500;
+
+  background: transparent !important;
+}
+
+.date-content
+  .ant-picker-input
+  > input::placeholder {
+  color: #555 !important;
+}
+
+.date-content .ant-picker-suffix {
+  color: #555;
+}
+
+
+/* ---------------------------------------------------------
+   SUMMARY
+   --------------------------------------------------------- */
+
+.form-summary {
+  margin: 25px 30px 0;
+
+  padding: 17px;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.055),
+      rgba(255, 255, 255, 0.018)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.075);
+
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.035);
+}
+
+.summary-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 13px;
+
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+
+  color: #555;
+}
+
+.summary-top svg {
+  color: #777;
+}
+
+.summary-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+.summary-service {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  min-width: 0;
+}
+
+.summary-icon {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  flex-shrink: 0;
+
+  border-radius: 11px;
+
+  font-size: 17px;
+
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.summary-service strong {
+  display: block;
+
+  max-width: 230px;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  color: #ddd;
+}
+
+.summary-service span {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 9px;
+
+  color: #5d5d5d;
+
+  text-transform: capitalize;
+}
+
+.summary-price {
+  display: flex;
+  align-items: baseline;
+
+  gap: 5px;
+
+  flex-shrink: 0;
+}
+
+.summary-price strong {
+  font-size: 19px;
+  font-weight: 650;
+
+  letter-spacing: -0.04em;
+
+  color: #f2f2f2;
+}
+
+.summary-price span {
+  font-size: 9px;
+
+  color: #666;
+}
+
+
+/* ---------------------------------------------------------
+   ACTIONS
+   --------------------------------------------------------- */
+
+.premium-actions {
+  display: grid;
+
+  grid-template-columns: 0.7fr 1.3fr;
+
+  gap: 10px;
+
+  padding: 25px 30px 30px;
+}
+
+.premium-actions button {
+  height: 52px;
+
+  border-radius: 15px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.premium-actions .cancel-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  color: #777;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.premium-actions .cancel-btn:hover {
+  color: #bbb;
+
+  background: rgba(255, 255, 255, 0.045);
+
+  border-color: rgba(255, 255, 255, 0.13);
+}
+
+.premium-actions .save-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  color: #0b0b0d;
+
+  background: #f2f2f2;
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.25),
+    inset 0 1px rgba(255, 255, 255, 0.8);
+}
+
+.premium-actions .save-btn:hover {
+  transform: translateY(-2px);
+
+  background: #fff;
+
+  box-shadow:
+    0 18px 35px rgba(0, 0, 0, 0.35),
+    0 0 25px rgba(255, 255, 255, 0.08);
+}
+
+.premium-actions .save-btn:active,
+.premium-actions .cancel-btn:active {
+  transform: scale(0.98);
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 620px) {
+  .subscription-modal {
+    width: calc(100vw - 24px);
+
+    max-height: 94vh;
+
+    border-radius: 24px;
+  }
+
+  .form-hero {
+    padding: 23px 20px;
+  }
+
+  .form-hero-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .form-hero-content h3 {
+    font-size: 19px;
+  }
+
+  .form-hero-content p {
+    font-size: 11px;
+  }
+
+  .form-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .premium-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cycle-selector {
+    grid-template-columns: 1fr;
+  }
+
+  .cycle-selector button {
+    min-height: 48px;
+  }
+
+  .form-summary {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .premium-actions {
+    grid-template-columns: 1fr;
+
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .premium-actions .save-btn {
+    order: -1;
+  }
+}
+.expenses-title-accent {
+  color: #e29eff;
+  text-shadow: 0 0 30px rgba(255, 80, 120, 0.12);
+}

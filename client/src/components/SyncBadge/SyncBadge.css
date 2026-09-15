@@ -1,0 +1,51 @@
+.sync-badge {
+  position: fixed;
+  bottom: 22px;
+  inset-inline-start: 22px;
+  z-index: 9990;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 11px 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+
+  background: rgba(12, 12, 12, 0.85);
+  color: #f5c86b;
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+
+  transition: transform 0.2s ease;
+}
+
+.sync-badge:hover {
+  transform: translateY(-2px);
+}
+
+.sync-spin {
+  animation: sync-rotate 0.9s linear infinite;
+}
+
+@keyframes sync-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+html[data-theme="light"] .sync-badge {
+  background: #ffffff;
+  border-color: rgba(20, 28, 40, 0.12);
+  color: #92600a;
+  box-shadow: 0 12px 32px rgba(20, 28, 40, 0.15);
+}

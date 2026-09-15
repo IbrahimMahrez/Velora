@@ -1,0 +1,40 @@
+.offline-banner {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9995;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 18px;
+
+  border: 1px solid rgba(245, 200, 107, 0.3);
+  border-radius: 999px;
+
+  background: rgba(12, 12, 12, 0.88);
+  color: #f5c86b;
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+
+html[dir="rtl"] .offline-banner {
+  transform: translateX(50%);
+}
+
+html[data-theme="light"] .offline-banner {
+  background: #ffffff;
+  border-color: rgba(146, 96, 10, 0.25);
+  color: #92600a;
+  box-shadow: 0 12px 32px rgba(20, 28, 40, 0.15);
+}

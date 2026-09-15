@@ -1,0 +1,637 @@
+/* =====================================================
+   ADMIN USERS PAGE
+===================================================== */
+
+.admin-users-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(124, 58, 237, 0.12),
+      transparent 30%
+    ),
+    #08070d;
+  color: #fff;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.admin-users-page .admin-sidebar {
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  bottom: 20px;
+  width: 245px;
+  z-index: 100;
+}
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.admin-users-page .admin-main {
+  margin-left: 285px;
+  width: calc(100% - 305px);
+}
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.admin-users-content {
+  padding: 30px 35px 40px;
+  max-width: 1600px;
+  margin: auto;
+}
+
+/* =====================================================
+   USERS HEADER
+===================================================== */
+
+.users-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  margin-bottom: 25px;
+}
+
+.users-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #a78bfa;
+  margin-bottom: 10px;
+}
+
+.users-header h2 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.users-header h2 span {
+  background: linear-gradient(
+    90deg,
+    #a78bfa,
+    #c084fc
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.users-header p {
+  margin: 8px 0 0;
+  color: #888395;
+  font-size: 14px;
+}
+
+.users-total {
+  min-width: 160px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.users-total svg {
+  color: #a78bfa;
+}
+
+.users-total strong {
+  font-size: 22px;
+}
+
+.users-total span {
+  font-size: 12px;
+  color: #77717f;
+}
+
+/* =====================================================
+   TOOLBAR
+===================================================== */
+
+.users-toolbar {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.users-search {
+  flex: 1;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 7px 0 15px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.025);
+  transition: 0.25s ease;
+}
+
+.users-search:focus-within {
+  border-color: rgba(139, 92, 246, 0.45);
+  box-shadow:
+    0 0 0 3px rgba(139, 92, 246, 0.07);
+}
+
+.users-search > svg {
+  color: #77717f;
+  flex-shrink: 0;
+}
+
+.users-search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
+}
+
+.users-search input::placeholder {
+  color: #625d6a;
+}
+
+.search-btn {
+  border: 0;
+  padding: 10px 17px;
+  border-radius: 9px;
+  background: linear-gradient(
+    135deg,
+    #7c3aed,
+    #9333ea
+  );
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.clear-search {
+  border: 0;
+  background: transparent;
+  color: #77717f;
+  cursor: pointer;
+}
+
+.users-filter {
+  min-width: 170px;
+  height: 48px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.users-filter svg {
+  color: #8d8498;
+}
+
+.users-filter select {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #ddd8e4;
+  cursor: pointer;
+}
+
+.users-filter option {
+  background: #15121c;
+}
+
+/* =====================================================
+   TABLE CARD
+===================================================== */
+
+.users-table-card {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.035),
+      rgba(255, 255, 255, 0.015)
+    );
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  min-width: 850px;
+  border-collapse: collapse;
+}
+
+.admin-table th {
+  padding: 17px 20px;
+  text-align: left;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #706a79;
+  background: rgba(255, 255, 255, 0.015);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.admin-table td {
+  padding: 17px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.045);
+}
+
+.admin-table tbody tr {
+  transition: 0.2s ease;
+}
+
+.admin-table tbody tr:hover {
+  background: rgba(139, 92, 246, 0.045);
+}
+
+.admin-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/* =====================================================
+   USER
+===================================================== */
+
+.table-user {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 170px;
+}
+
+.user-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(124, 58, 237, 0.3),
+    rgba(168, 85, 247, 0.15)
+  );
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  color: #c4b5fd;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.table-user strong {
+  color: #eeeaf2;
+  font-size: 13px;
+}
+
+.email-text {
+  color: #8a8492;
+  font-size: 13px;
+}
+
+/* =====================================================
+   PLAN BADGE
+===================================================== */
+
+.plan-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.plan-badge.free {
+  color: #aaa5b0;
+  background: rgba(148, 163, 184, 0.1);
+}
+
+.plan-badge.premium {
+  color: #c4b5fd;
+  background: rgba(139, 92, 246, 0.13);
+}
+
+.plan-badge.family {
+  color: #67e8f9;
+  background: rgba(6, 182, 212, 0.1);
+}
+
+/* =====================================================
+   USER STATUS
+===================================================== */
+
+.user-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.user-status.verified {
+  color: #4ade80;
+}
+
+.user-status.unverified {
+  color: #f59e0b;
+}
+
+.date-text {
+  color: #817b89;
+  font-size: 12px;
+}
+
+/* =====================================================
+   ACTIONS
+===================================================== */
+
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.action-btn {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.025);
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.action-btn.view {
+  color: #a78bfa;
+}
+
+.action-btn.view:hover {
+  background: rgba(139, 92, 246, 0.14);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.action-btn.delete {
+  color: #f87171;
+}
+
+.action-btn.delete:hover {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.25);
+}
+
+/* =====================================================
+   PAGINATION
+===================================================== */
+
+.users-pagination {
+  padding: 17px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.045);
+  color: #77717f;
+  font-size: 12px;
+}
+
+.users-pagination strong {
+  color: #c9c3d0;
+}
+
+.pagination-buttons {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.pagination-buttons button,
+.page-number {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+}
+
+.pagination-buttons button {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.025);
+  color: #aaa4b0;
+  cursor: pointer;
+}
+
+.pagination-buttons button:hover:not(:disabled) {
+  background: rgba(139, 92, 246, 0.1);
+  border-color: rgba(139, 92, 246, 0.25);
+  color: #c4b5fd;
+}
+
+.pagination-buttons button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.page-number {
+  color: #c4b5fd;
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+.users-error {
+  margin-bottom: 20px;
+  padding: 13px 16px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid rgba(239, 68, 68, 0.15);
+  border-radius: 12px;
+  background: rgba(239, 68, 68, 0.07);
+  color: #fca5a5;
+  font-size: 13px;
+}
+
+/* =====================================================
+   EMPTY
+===================================================== */
+
+.table-empty {
+  height: 260px;
+  text-align: center;
+  color: #706a79;
+}
+
+.table-empty svg {
+  display: block;
+  margin: 0 auto 12px;
+  opacity: 0.35;
+}
+
+.table-empty strong,
+.table-empty span {
+  display: block;
+}
+
+.table-empty strong {
+  color: #aaa4b0;
+  margin-bottom: 5px;
+}
+
+.table-empty span {
+  font-size: 12px;
+}
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.admin-users-loading {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #827b8b;
+}
+
+.admin-users-loader {
+  width: 38px;
+  height: 38px;
+  margin-bottom: 15px;
+  border-radius: 50%;
+  border: 3px solid rgba(139, 92, 246, 0.15);
+  border-top-color: #8b5cf6;
+  animation: users-spin 0.8s linear infinite;
+}
+
+@keyframes users-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin {
+  animation: users-spin 0.8s linear infinite;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.admin-users-content .admin-footer {
+  margin-top: 25px;
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+.users-sidebar-overlay {
+  display: none;
+}
+
+@media (max-width: 900px) {
+
+  .admin-users-page .admin-sidebar {
+    transform: translateX(-120%);
+    transition: 0.3s ease;
+  }
+
+  .admin-users-page .admin-sidebar.sidebar-open {
+    transform: translateX(0);
+  }
+
+  .users-sidebar-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(5px);
+  }
+
+  .admin-users-page .admin-main {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .admin-users-content {
+    padding: 25px 20px;
+  }
+
+}
+
+@media (max-width: 650px) {
+
+  .users-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .users-total {
+    width: 100%;
+  }
+
+  .users-toolbar {
+    flex-direction: column;
+  }
+
+  .users-filter {
+    width: 100%;
+  }
+
+  .users-pagination {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+}
+
+@media (max-width: 450px) {
+
+  .admin-users-content {
+    padding: 20px 14px;
+  }
+
+  .users-header h2 {
+    font-size: 26px;
+  }
+
+  .users-search {
+    min-height: 44px;
+  }
+
+  .search-btn {
+    padding: 9px 12px;
+  }
+
+}

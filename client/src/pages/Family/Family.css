@@ -1,0 +1,213 @@
+.family-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 32px 40px 50px;
+  box-sizing: border-box;
+  background:
+    radial-gradient(circle at 75% 10%, rgba(139, 92, 246, 0.1), transparent 28%),
+    #030303;
+  color: #f5f5f5;
+  font-family: "Inter", sans-serif;
+}
+
+.family-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.family-header h1 { margin: 0; font-size: 40px; letter-spacing: -0.03em; }
+.family-eyebrow { margin: 0 0 8px; font-size: 10px; letter-spacing: 0.18em; color: #8f8f8f; font-weight: 600; }
+.family-subtitle { color: #888; font-size: 13px; margin-top: 8px; }
+
+.family-split {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.family-card {
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.04);
+  border-radius: 18px;
+  padding: 22px;
+}
+
+.family-card h2, .family-card h3 { margin: 0 0 14px; display: flex; align-items: center; gap: 8px; }
+.family-card label { display: flex; flex-direction: column; gap: 8px; font-size: 13px; margin-bottom: 14px; }
+.family-card input {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #fff;
+  border-radius: 12px;
+  padding: 11px 12px;
+  font-size: 14px;
+}
+
+.family-primary-btn {
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 999px;
+  padding: 11px 20px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.family-dashboard { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
+
+.family-identity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.family-code-label { color: #888; font-size: 12px; margin: 6px 0 0; }
+
+.family-code-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px dashed rgba(255,255,255,0.2);
+  border-radius: 14px;
+  padding: 10px 14px;
+}
+
+.family-code-box code { font-size: 16px; letter-spacing: 0.1em; font-weight: 700; }
+.family-code-box button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #fff;
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.family-members { display: flex; flex-direction: column; gap: 10px; }
+
+.family-member {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.02);
+}
+
+.family-member-info { display: flex; align-items: center; gap: 12px; }
+.family-avatar {
+  width: 38px; height: 38px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(139,92,246,0.2); font-weight: 700;
+}
+.family-member small { color: #999; display: block; margin-top: 4px; }
+
+.family-owner-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-inline-start: 8px;
+  font-size: 11px; font-weight: 600;
+  background: rgba(245,158,11,0.15); color: #fbbf24;
+  border-radius: 999px; padding: 2px 8px;
+}
+
+.family-remove-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: transparent;
+  border: 1px solid rgba(248,113,113,0.4);
+  color: #f87171;
+  border-radius: 999px; padding: 7px 12px; font-size: 12px; cursor: pointer;
+}
+
+.family-danger-row { display: flex; justify-content: flex-end; }
+.family-danger-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(239,68,68,0.12);
+  border: 1px solid rgba(239,68,68,0.4);
+  color: #f87171;
+  border-radius: 999px; padding: 10px 18px; font-size: 13px; cursor: pointer;
+}
+
+.family-state {
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  padding: 60px 20px; color: #aaa; text-align: center;
+}
+
+.family-loader {
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 3px solid rgba(255,255,255,0.15);
+  border-top-color: #fff;
+  animation: family-spin 0.8s linear infinite;
+}
+@keyframes family-spin { to { transform: rotate(360deg); } }
+.family-error-text { color: #f87171; font-size: 13px; }
+
+.family-budget-numbers {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 6px 0 12px;
+}
+
+.family-budget-numbers strong {
+  font-size: 26px;
+  color: #fff;
+}
+
+.family-budget-numbers span {
+  font-size: 12px;
+  color: #9aa3b2;
+}
+
+.family-budget-bar {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.family-budget-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7d5cff, #a78bfa);
+  transition: width 0.4s ease;
+}
+
+.family-budget-empty {
+  color: #9aa3b2;
+  font-size: 13px;
+  margin: 6px 0 12px;
+}
+
+.family-budget-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.family-budget-form input {
+  flex: 1;
+  min-width: 140px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: #fff;
+  font-size: 13px;
+}
+
+@media (max-width: 640px) {
+  .family-page { padding: 22px 18px 40px; }
+  .family-header h1 { font-size: 30px; }
+}

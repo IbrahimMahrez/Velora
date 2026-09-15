@@ -1,0 +1,98 @@
+.broadcast-card {
+  max-width: 640px;
+}
+
+.broadcast-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: rgba(125, 92, 255, 0.12);
+  color: #a78bfa;
+  margin-bottom: 16px;
+}
+
+.broadcast-card h2 {
+  margin: 0 0 6px;
+  font-size: 20px;
+  color: #fff;
+}
+
+.broadcast-hint {
+  margin: 0 0 22px;
+  font-size: 12px;
+  line-height: 1.7;
+  color: #888;
+}
+
+.broadcast-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.broadcast-card label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 12px;
+  color: #aaa;
+}
+
+.broadcast-card input,
+.broadcast-card textarea {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 12px 14px;
+  color: #fff;
+  font-size: 13px;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.broadcast-card input:focus,
+.broadcast-card textarea:focus {
+  outline: none;
+  border-color: rgba(125, 92, 255, 0.5);
+}
+
+.broadcast-error {
+  margin: 0;
+  font-size: 12px;
+  color: #f87171;
+}
+
+.broadcast-success {
+  margin: 0;
+  font-size: 12px;
+  color: #34d399;
+}
+
+.broadcast-send {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border: 0;
+  border-radius: 999px;
+  background: #fff;
+  color: #050505;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  align-self: flex-start;
+}
+
+.broadcast-send:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.broadcast-send:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}

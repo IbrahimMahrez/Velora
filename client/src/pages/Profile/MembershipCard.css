@@ -1,0 +1,570 @@
+/* =========================================================
+   MEMBERSHIP CARD — card styles only.
+   Page/layout classes live in Profile.css, so nothing here
+   can force the profile page into columns.
+========================================================= */
+
+.membership-card {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 270px;
+
+    overflow: hidden;
+
+    padding: 23px 25px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.085),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+
+    box-shadow:
+        0 25px 60px
+        rgba(0, 0, 0, 0.28),
+
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.1);
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease;
+}
+
+.membership-card:hover {
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(255, 255, 255, 0.2);
+}
+
+.membership-card-content {
+    position: relative;
+    z-index: 2;
+
+    height: 100%;
+}
+
+
+/* =========================================================
+   PLAN VARIANTS
+========================================================= */
+
+.membership-free {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.085),
+            rgba(150, 150, 170, 0.025)
+        );
+}
+
+.membership-premium {
+    background:
+        radial-gradient(
+            circle at 82% 18%,
+            rgba(139, 92, 246, 0.32),
+            transparent 38%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(105, 55, 180, 0.25),
+            rgba(30, 18, 50, 0.3)
+        );
+}
+
+.membership-family {
+    background:
+        radial-gradient(
+            circle at 82% 15%,
+            rgba(72, 115, 255, 0.27),
+            transparent 38%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(92, 72, 180, 0.24),
+            rgba(25, 23, 52, 0.3)
+        );
+}
+
+
+/* =========================================================
+   GLOW
+========================================================= */
+
+.membership-glow {
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    top: -155px;
+    right: -85px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(154, 102, 255, 0.3);
+
+    filter: blur(65px);
+
+    pointer-events: none;
+
+    animation:
+        membershipGlow
+        5s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+/* Free glow */
+
+.membership-free .membership-glow {
+    background:
+        rgba(255, 255, 255, 0.11);
+}
+
+
+/* Premium glow */
+
+.membership-premium .membership-glow {
+    background:
+        rgba(154, 102, 255, 0.4);
+}
+
+
+/* Family glow */
+
+.membership-family .membership-glow {
+    background:
+        rgba(80, 125, 255, 0.36);
+}
+
+
+@keyframes membershipGlow {
+    from {
+        transform:
+            translate3d(
+                0,
+                0,
+                0
+            );
+    }
+
+    to {
+        transform:
+            translate3d(
+                -35px,
+                22px,
+                0
+            );
+    }
+}
+
+
+/* =========================================================
+   NOISE
+========================================================= */
+
+.membership-noise {
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0.035;
+
+    pointer-events: none;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+}
+
+
+/* =========================================================
+   CARD TOP
+========================================================= */
+
+.membership-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+}
+
+.membership-brand {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.membership-brand-icon {
+    width: 29px;
+    height: 29px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 9px;
+
+    background:
+        rgba(255, 255, 255, 0.1);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+}
+
+.membership-type {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    color:
+        rgba(255, 255, 255, 0.65);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 0.13em;
+}
+
+
+/* =========================================================
+   CHIP
+========================================================= */
+
+.membership-chip-row {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    margin-top: 30px;
+}
+
+.membership-chip {
+    width: 40px;
+    height: 30px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 1px;
+
+    padding: 5px;
+
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d8c89e,
+            #82744d
+        );
+
+    box-shadow:
+        0 5px 18px
+        rgba(0, 0, 0, 0.18);
+}
+
+.membership-chip span {
+    border:
+        0.5px solid
+        rgba(40, 30, 10, 0.5);
+
+    border-radius: 3px;
+}
+
+.membership-contactless {
+    transform: rotate(90deg);
+
+    color:
+        rgba(255, 255, 255, 0.5);
+}
+
+
+/* =========================================================
+   CARD NUMBER
+========================================================= */
+
+.membership-number {
+    margin-top: 19px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        clamp(17px, 2vw, 22px);
+
+    font-weight: 500;
+
+    letter-spacing: 0.09em;
+
+    white-space: nowrap;
+
+    color:
+        rgba(255, 255, 255, 0.9);
+
+    text-shadow:
+        0 2px 12px
+        rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================================================
+   CARD BOTTOM
+========================================================= */
+
+.membership-card-bottom {
+    display: flex;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-top: 22px;
+}
+
+.membership-holder,
+.membership-plan {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+
+    min-width: 0;
+}
+
+.membership-holder span,
+.membership-plan span {
+    font-size: 7px;
+
+    color:
+        rgba(255, 255, 255, 0.35);
+
+    letter-spacing: 0.16em;
+}
+
+.membership-holder strong,
+.membership-plan strong {
+    max-width: 240px;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.08em;
+
+    color:
+        rgba(255, 255, 255, 0.82);
+}
+
+
+/* =========================================================
+   CARD FOOTER
+========================================================= */
+
+.membership-card-footer {
+    position: absolute;
+
+    left: 25px;
+    right: 25px;
+
+    bottom: 17px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 12px;
+
+    padding-top: 12px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    color:
+        rgba(255, 255, 255, 0.42);
+
+    font-size: 8px;
+}
+
+.membership-footer-description {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    min-width: 0;
+}
+
+.membership-footer-description span {
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+.membership-card-footer > strong {
+    flex-shrink: 0;
+
+    color:
+        rgba(255, 255, 255, 0.65);
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .membership-card {
+        max-width: 560px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .membership-card {
+        width: 100%;
+
+        min-height: 270px;
+
+        padding:
+            21px
+            20px;
+    }
+
+    .membership-card-footer {
+        left: 20px;
+        right: 20px;
+
+        bottom: 16px;
+    }
+
+    .membership-number {
+        font-size: 17px;
+
+        letter-spacing: 0.06em;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE — SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .membership-card {
+        min-height: 260px;
+
+        padding:
+            19px
+            17px;
+    }
+
+    .membership-brand {
+        font-size: 14px;
+    }
+
+    .membership-brand-icon {
+        width: 27px;
+        height: 27px;
+    }
+
+    .membership-type {
+        font-size: 7px;
+
+        letter-spacing: 0.09em;
+    }
+
+    .membership-chip-row {
+        margin-top: 25px;
+    }
+
+    .membership-chip {
+        width: 37px;
+        height: 28px;
+    }
+
+    .membership-number {
+        font-size: 14px;
+
+        letter-spacing: 0.045em;
+    }
+
+    .membership-card-bottom {
+        margin-top: 19px;
+    }
+
+    .membership-card-footer {
+        left: 17px;
+        right: 17px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 4px;
+    }
+
+    .membership-footer-description {
+        max-width: 100%;
+    }
+
+    .membership-card-footer > strong {
+        font-size: 7px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .membership-glow {
+        animation: none;
+    }
+
+    .membership-card {
+        transition: none;
+    }
+}

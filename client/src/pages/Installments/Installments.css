@@ -1,0 +1,2178 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap");
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.installments-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 80px 24px;
+
+  background:
+    radial-gradient(
+      circle at 78% 8%,
+      rgba(125, 92, 255, 0.1),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 12% 75%,
+      rgba(125, 92, 255, 0.055),
+      transparent 25%
+    ),
+    #030303;
+
+  color: #f5f5f5;
+  font-family: "Barlow", sans-serif;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.installments-header {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1400px;
+
+  margin: 0 auto 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 40px;
+}
+
+.installments-header-info {
+  min-width: 0;
+}
+
+.installments-eyebrow {
+  display: block;
+
+  margin-bottom: 14px;
+
+  color: #737078;
+
+  font-size: 10px;
+  font-weight: 500;
+
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.installments-header h1 {
+  margin: 0;
+
+  color: #f5f5f5;
+
+  font-family: "Instrument Serif", serif;
+
+  font-size: clamp(58px, 7vw, 100px);
+
+  font-style: italic;
+  font-weight: 400;
+
+  line-height: 0.82;
+
+  letter-spacing: -0.04em;
+}
+
+.installments-header p {
+  max-width: 510px;
+
+  margin: 28px 0 0;
+
+  color: #65636a;
+
+  font-size: 14px;
+  font-weight: 300;
+
+  line-height: 1.7;
+}
+
+/* =========================================================
+   HEADER BUTTONS
+========================================================= */
+
+.installments-header-actions {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+
+.back-dashboard-btn,
+.add-installment-btn {
+  height: 48px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  padding: 0 20px;
+
+  border-radius: 999px;
+
+  font-family: "Barlow", sans-serif;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.back-dashboard-btn {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  background: rgba(255, 255, 255, 0.035);
+
+  color: #8d8a92;
+}
+
+.back-dashboard-btn:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(255, 255, 255, 0.15);
+
+  background: rgba(255, 255, 255, 0.065);
+
+  color: #fff;
+}
+
+.add-installment-btn {
+  border: 1px solid rgba(125, 92, 255, 0.3);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(125, 92, 255, 0.14),
+      rgba(125, 92, 255, 0.055)
+    );
+
+  color: #d6ceff;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+.add-installment-btn svg {
+  color: #9b82ff;
+}
+
+.add-installment-btn:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(155, 130, 255, 0.55);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(125, 92, 255, 0.23),
+      rgba(125, 92, 255, 0.09)
+    );
+
+  color: #fff;
+
+  box-shadow:
+    0 12px 35px rgba(125, 92, 255, 0.16);
+}
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.installment-stats {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1400px;
+
+  margin: 0 auto 70px;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 14px;
+}
+
+.installment-stat-card {
+  position: relative;
+
+  min-height: 145px;
+
+  padding: 24px 26px;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+
+  gap: 17px;
+
+  border: 1px solid rgba(255, 255, 255, 0.065);
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.012)
+    );
+
+  box-shadow:
+    0 18px 55px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.installment-stat-card:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(255, 255, 255, 0.12);
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.45);
+}
+
+.installment-stat-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 170px;
+  height: 170px;
+
+  right: -90px;
+  top: -100px;
+
+  border-radius: 50%;
+
+  filter: blur(45px);
+
+  opacity: 0.45;
+
+  pointer-events: none;
+}
+
+.installment-stat-card.purple::before {
+  background: rgba(125, 92, 255, 0.25);
+}
+
+.installment-stat-card.orange::before {
+  background: rgba(255, 174, 103, 0.18);
+}
+
+.installment-stat-card.green::before {
+  background: rgba(80, 210, 145, 0.18);
+}
+
+.installment-stat-card.red::before {
+  background: rgba(255, 95, 95, 0.18);
+}
+
+.installment-stat-card.balance::before {
+  background: rgba(125, 92, 255, 0.22);
+}
+
+/* =========================================================
+   STAT ICON
+========================================================= */
+
+.installment-stat-icon {
+  position: relative;
+  z-index: 2;
+
+  flex-shrink: 0;
+
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(125, 92, 255, 0.16);
+
+  border-radius: 14px;
+
+  background: rgba(125, 92, 255, 0.055);
+
+  color: #9b82ff;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+.installment-stat-card.orange .installment-stat-icon {
+  border-color: rgba(255, 174, 103, 0.15);
+
+  background: rgba(255, 174, 103, 0.045);
+
+  color: #ffae67;
+}
+
+.installment-stat-card.green .installment-stat-icon {
+  border-color: rgba(80, 210, 145, 0.15);
+
+  background: rgba(80, 210, 145, 0.045);
+
+  color: #68d8a3;
+}
+
+.installment-stat-card.red .installment-stat-icon {
+  border-color: rgba(255, 95, 95, 0.15);
+
+  background: rgba(255, 95, 95, 0.045);
+
+  color: #ff7777;
+}
+
+.installment-stat-icon svg {
+  width: 20px;
+  height: 20px;
+
+  stroke-width: 1.65;
+}
+
+/* =========================================================
+   STAT TEXT
+========================================================= */
+
+.installment-stat-card > div:last-child {
+  position: relative;
+  z-index: 2;
+
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.installment-stat-card span {
+  color: #69666e;
+
+  font-size: 10px;
+  font-weight: 500;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+}
+
+.installment-stat-card strong {
+  color: #f5f3fa;
+
+  font-family: "Instrument Serif", serif;
+
+  font-size: 38px;
+
+  font-style: italic;
+  font-weight: 400;
+
+  line-height: 0.95;
+
+  letter-spacing: -0.02em;
+}
+
+.installment-stat-card.orange strong {
+  color: #fff6ed;
+}
+
+.installment-stat-card.green strong {
+  color: #effff7;
+}
+
+.installment-stat-card.red strong {
+  color: #fff1f1;
+}
+
+.installment-stat-card.balance {
+  grid-column: span 2;
+}
+
+/* =========================================================
+   TOOLBAR
+========================================================= */
+
+.installments-toolbar {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1400px;
+
+  margin: 0 auto 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.installment-tabs {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
+  padding: 5px;
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  backdrop-filter: blur(12px);
+}
+
+.installment-tab {
+  padding: 9px 17px;
+
+  border: 0;
+
+  border-radius: 999px;
+
+  outline: none;
+
+  background: transparent;
+
+  color: #666;
+
+  font-family: "Barlow", sans-serif;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.installment-tab:hover {
+  color: #aaa;
+}
+
+.installment-tab.active {
+  background: rgba(125, 92, 255, 0.13);
+
+  color: #b7a7ff;
+}
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.installment-search {
+  position: relative;
+
+  width: 280px;
+}
+
+.installment-search > svg {
+  position: absolute;
+
+  left: 15px;
+  top: 50%;
+
+  width: 16px;
+  height: 16px;
+
+  color: #555;
+
+  transform: translateY(-50%);
+
+  pointer-events: none;
+}
+
+.installment-search input {
+  width: 100%;
+  height: 43px;
+
+  padding: 0 42px;
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  border-radius: 999px;
+
+  outline: none;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  color: #eee;
+
+  font-family: "Barlow", sans-serif;
+
+  font-size: 13px;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.installment-search input::placeholder {
+  color: #555;
+}
+
+.installment-search input:focus {
+  border-color: rgba(125, 92, 255, 0.35);
+
+  background: rgba(125, 92, 255, 0.045);
+}
+
+.clear-search {
+  position: absolute;
+
+  right: 9px;
+  top: 50%;
+
+  width: 27px;
+  height: 27px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background: transparent;
+
+  color: #666;
+
+  cursor: pointer;
+
+  transform: translateY(-50%);
+}
+
+.clear-search:hover {
+  color: #fff;
+
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/* =========================================================
+   INSTALLMENT LIST
+========================================================= */
+
+.installments-list {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+/* =========================================================
+   INSTALLMENT CARD
+========================================================= */
+
+.installment-card {
+  position: relative;
+
+  width: 100%;
+  min-height: 210px;
+
+  padding: 25px 27px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 35px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.065);
+
+  border-radius: 24px;
+
+  background:
+    radial-gradient(
+      circle at 5% 50%,
+      rgba(125, 92, 255, 0.065),
+      transparent 28%
+    ),
+    rgba(255, 255, 255, 0.022);
+
+  box-shadow:
+    0 18px 55px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.installment-card:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(125, 92, 255, 0.16);
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.42),
+    0 0 40px rgba(125, 92, 255, 0.035);
+}
+
+.installment-card::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 24px;
+  bottom: 24px;
+
+  width: 2px;
+
+  border-radius: 999px;
+
+  background: #8066ff;
+
+  opacity: 0;
+
+  transition: opacity 0.25s ease;
+}
+
+.installment-card:hover::before {
+  opacity: 1;
+}
+
+/* =========================================================
+   CARD LEFT
+========================================================= */
+
+.installment-card-left {
+  min-width: 0;
+
+  flex: 1;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 18px;
+}
+
+.installment-icon {
+  position: relative;
+
+  flex-shrink: 0;
+
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(125, 92, 255, 0.18);
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(125, 92, 255, 0.11),
+      rgba(125, 92, 255, 0.035)
+    );
+
+  color: #9b82ff;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    0 8px 25px rgba(125, 92, 255, 0.06);
+}
+
+.installment-icon svg {
+  width: 23px;
+  height: 23px;
+
+  stroke-width: 1.6;
+}
+
+/* =========================================================
+   MAIN CARD CONTENT
+========================================================= */
+
+.installment-main {
+  min-width: 0;
+
+  flex: 1;
+}
+
+.installment-title-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 11px;
+
+  margin-bottom: 11px;
+}
+
+.installment-title-row h3 {
+  max-width: 500px;
+
+  margin: 0;
+
+  overflow: hidden;
+
+  color: #f4f0fa;
+
+  font-family: "Instrument Serif", serif;
+
+  font-size: 30px;
+
+  font-style: italic;
+  font-weight: 400;
+
+  line-height: 1;
+
+  letter-spacing: -0.02em;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.installment-status {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 6px 10px;
+
+  border-radius: 999px;
+
+  font-family: "Barlow", sans-serif;
+
+  font-size: 9px;
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  backdrop-filter: blur(10px);
+}
+
+.installment-status.active {
+  border: 1px solid rgba(125, 92, 255, 0.22);
+
+  background: rgba(125, 92, 255, 0.08);
+
+  color: #a995ff;
+
+  box-shadow:
+    0 0 18px rgba(125, 92, 255, 0.05);
+}
+
+.installment-status.completed {
+  border: 1px solid rgba(80, 210, 145, 0.2);
+
+  background: rgba(80, 210, 145, 0.07);
+
+  color: #68d8a3;
+}
+
+.installment-status.overdue {
+  border: 1px solid rgba(255, 95, 95, 0.2);
+
+  background: rgba(255, 95, 95, 0.07);
+
+  color: #ff7777;
+
+  box-shadow:
+    0 0 18px rgba(255, 95, 95, 0.05);
+}
+
+/* =========================================================
+   META
+========================================================= */
+
+.installment-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 10px 20px;
+
+  color: #69656f;
+
+  font-size: 11px;
+
+  font-weight: 300;
+}
+
+.installment-meta span {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 6px;
+}
+
+.installment-meta svg {
+  width: 14px;
+  height: 14px;
+
+  color: #8879b3;
+
+  stroke-width: 1.7;
+}
+
+.installment-meta b {
+  color: #b2acb9;
+
+  font-weight: 500;
+}
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.installment-progress {
+  width: min(100%, 500px);
+
+  margin-top: 18px;
+}
+
+.progress-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 8px;
+}
+
+.progress-header span {
+  color: #66616d;
+
+  font-size: 10px;
+  font-weight: 500;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+.progress-header b {
+  color: #a18cff;
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.progress-track {
+  width: 100%;
+  height: 5px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.progress-fill {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #6e54d9,
+      #9b82ff
+    );
+
+  box-shadow:
+    0 0 14px rgba(125, 92, 255, 0.35);
+
+  transition: width 0.6s ease;
+}
+
+/* =========================================================
+   NOTES
+========================================================= */
+
+.installment-notes {
+  max-width: 600px;
+
+  margin: 13px 0 0;
+
+  color: #69646f;
+
+  font-size: 11px;
+
+  font-weight: 300;
+
+  line-height: 1.6;
+}
+
+/* =========================================================
+   CARD RIGHT
+========================================================= */
+
+.installment-card-right {
+  flex-shrink: 0;
+
+  min-width: 225px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+
+  gap: 12px;
+}
+
+.installment-amount {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  gap: 2px;
+}
+
+.installment-amount > span {
+  color: #625d68;
+
+  font-size: 9px;
+  font-weight: 500;
+
+  letter-spacing: 0.17em;
+
+  text-transform: uppercase;
+}
+
+.installment-amount strong {
+  color: #f5f1fb;
+
+  font-family: "Instrument Serif", serif;
+
+  font-size: 41px;
+
+  font-style: italic;
+  font-weight: 400;
+
+  line-height: 0.9;
+
+  letter-spacing: -0.025em;
+}
+
+.installment-amount small {
+  color: #625d68;
+
+  font-size: 10px;
+
+  font-weight: 300;
+}
+
+/* =========================================================
+   CARD ACTIONS
+========================================================= */
+
+.installment-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 4px;
+}
+
+.installment-actions button {
+  position: relative;
+
+  width: 40px;
+  height: 40px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border-radius: 13px;
+
+  cursor: pointer;
+
+  font-family: "Barlow", sans-serif;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.installment-actions button svg {
+  width: 17px;
+  height: 17px;
+
+  stroke-width: 1.8;
+
+  transition: transform 0.25s ease;
+}
+
+/* =========================================================
+   COMPLETE BUTTON
+========================================================= */
+
+.installment-pay-btn {
+  border: 1px solid rgba(80, 210, 145, 0.16);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(80, 210, 145, 0.08),
+      rgba(80, 210, 145, 0.025)
+    );
+
+  color: #65c997;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+.installment-pay-btn:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(80, 210, 145, 0.4);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(80, 210, 145, 0.15),
+      rgba(80, 210, 145, 0.055)
+    );
+
+  color: #82e9b4;
+
+  box-shadow:
+    0 10px 28px rgba(80, 210, 145, 0.12);
+}
+
+.installment-pay-btn:hover svg {
+  transform: scale(1.08);
+}
+
+/* =========================================================
+   EDIT BUTTON
+========================================================= */
+
+.installment-edit-btn {
+  border: 1px solid rgba(125, 92, 255, 0.22);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(125, 92, 255, 0.1),
+      rgba(125, 92, 255, 0.035)
+    );
+
+  color: #9b82ff;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+.installment-edit-btn:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(155, 130, 255, 0.55);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(125, 92, 255, 0.18),
+      rgba(125, 92, 255, 0.07)
+    );
+
+  color: #c0b0ff;
+
+  box-shadow:
+    0 10px 30px rgba(125, 92, 255, 0.15);
+}
+
+.installment-edit-btn:hover svg {
+  transform: rotate(-6deg) scale(1.08);
+}
+
+/* =========================================================
+   DELETE BUTTON
+========================================================= */
+
+.installment-delete-btn {
+  border: 1px solid rgba(255, 95, 95, 0.16);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 95, 95, 0.065),
+      rgba(255, 95, 95, 0.025)
+    );
+
+  color: #a86666;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+.installment-delete-btn:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(255, 95, 95, 0.42);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 95, 95, 0.13),
+      rgba(255, 95, 95, 0.045)
+    );
+
+  color: #ff7d7d;
+
+  box-shadow:
+    0 10px 28px rgba(255, 95, 95, 0.12);
+}
+
+.installment-delete-btn:hover svg {
+  transform: scale(1.08);
+}
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.installments-empty {
+  padding: 90px 30px;
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  border-radius: 26px;
+
+  background: rgba(255, 255, 255, 0.02);
+
+  text-align: center;
+}
+
+.empty-icon {
+  width: 62px;
+  height: 62px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(125, 92, 255, 0.17);
+
+  border-radius: 18px;
+
+  background: rgba(125, 92, 255, 0.055);
+
+  color: #8d75ed;
+}
+
+.installments-empty h3 {
+  margin: 0 0 8px;
+
+  color: #f76666;
+
+  font-family: "Instrument Serif", serif;
+
+  font-size: 31px;
+
+  font-style: italic;
+  font-weight: 400;
+}
+
+.installments-empty p {
+  margin: 0 0 22px;
+
+  color: #555;
+
+  font-size: 13px;
+}
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+.installments-loader {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 15px;
+
+  background: #030303;
+
+  color: #555;
+
+  font-family: "Barlow", sans-serif;
+}
+
+.installments-loader .ant-spin-dot-item {
+  background: #8066ff !important;
+}
+
+.installments-loader p {
+  margin: 0;
+
+  color: #5d5965;
+
+  font-size: 13px;
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+/*
+   IMPORTANT:
+   Ant Design renders the Modal through a portal.
+   These selectors intentionally target .ant-modal directly.
+*/
+
+.ant-modal.installment-modal {
+  max-width: calc(100vw - 32px);
+}
+
+.ant-modal.installment-modal .ant-modal-content {
+  padding: 0 !important;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(125, 92, 255, 0.3) !important;
+
+  border-radius: 28px !important;
+
+  background:
+    radial-gradient(
+      circle at 90% 0%,
+      rgba(125, 92, 255, 0.2),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 0% 100%,
+      rgba(125, 92, 255, 0.1),
+      transparent 38%
+    ),
+    #09070f !important;
+
+  box-shadow:
+    0 40px 120px rgba(0, 0, 0, 0.8),
+    0 0 90px rgba(125, 92, 255, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035) !important;
+
+  backdrop-filter: blur(25px);
+
+  -webkit-backdrop-filter: blur(25px);
+}
+
+.ant-modal.installment-modal .ant-modal-body {
+  padding: 0 !important;
+}
+
+/* =========================================================
+   MODAL HEADER
+========================================================= */
+
+.installment-modal .installment-modal-header {
+  position: relative;
+
+  padding: 32px 34px 21px;
+
+  border-bottom: 1px solid rgba(125, 92, 255, 0.12);
+}
+
+.installment-modal .installment-modal-header > div {
+  padding-right: 40px;
+}
+
+.installment-modal .installment-modal-header span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #8f7ee0;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+}
+
+.installment-modal .installment-modal-header h2 {
+  margin: 0;
+
+  color: #100135;
+
+  font-family: "Instrument Serif", serif;
+
+  font-size: 39px;
+
+  font-style: italic;
+
+  font-weight: 400;
+
+  line-height: 0.95;
+
+  letter-spacing: -0.02em;
+}
+
+/* =========================================================
+   MODAL CLOSE
+========================================================= */
+
+.ant-modal.installment-modal .ant-modal-close {
+  top: 24px !important;
+
+  right: 24px !important;
+
+  width: 38px !important;
+
+  height: 38px !important;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(125, 92, 255, 0.1) !important;
+
+  border-radius: 12px !important;
+
+  color: #777080 !important;
+
+  background: rgba(125, 92, 255, 0.035) !important;
+
+  transition: all 0.25s ease !important;
+}
+
+.ant-modal.installment-modal .ant-modal-close:hover {
+  color: #05001a !important;
+
+  background: rgba(125, 92, 255, 0.11) !important;
+
+  border-color: rgba(125, 92, 255, 0.25) !important;
+
+  transform: rotate(4deg);
+}
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.installment-form {
+  padding: 28px 34px 32px;
+
+  font-family: "Barlow", sans-serif;
+}
+
+.installment-form .ant-form-item {
+  margin-bottom: 18px !important;
+}
+
+.installment-form .form-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+/* =========================================================
+   FORM LABELS
+========================================================= */
+
+.installment-form .ant-form-item-label {
+  padding-bottom: 7px !important;
+}
+
+.installment-form .ant-form-item-label > label {
+  height: auto !important;
+
+  color: #020104 !important;
+
+  font-family: "Barlow", sans-serif !important;
+
+  font-size: 11px !important;
+
+  font-weight: 500 !important;
+
+  letter-spacing: 0.05em;
+}
+
+.installment-form
+  .ant-form-item-label
+  > label.ant-form-item-required::before {
+  color: #9b82ff !important;
+}
+
+/* =========================================================
+   NORMAL INPUT
+========================================================= */
+
+.installment-form .ant-input {
+  min-height: 46px !important;
+
+  padding: 10px 14px !important;
+
+  color: #100031 !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(125, 92, 255, 0.07),
+      rgba(255, 255, 255, 0.018)
+    ) !important;
+
+  border: 1px solid rgba(125, 92, 255, 0.22) !important;
+
+  border-radius: 13px !important;
+
+  font-family: "Barlow", sans-serif !important;
+
+  font-size: 14px !important;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.025) !important;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease !important;
+}
+
+.installment-form .ant-input::placeholder {
+  color: #625b70 !important;
+}
+
+.installment-form .ant-input:hover {
+  border-color: rgba(155, 130, 255, 0.45) !important;
+}
+
+.installment-form .ant-input:focus {
+  border-color: #7d5cff !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(125, 92, 255, 0.11),
+      rgba(125, 92, 255, 0.035)
+    ) !important;
+
+  box-shadow:
+    0 0 0 3px rgba(125, 92, 255, 0.1),
+    0 0 28px rgba(125, 92, 255, 0.09) !important;
+}
+
+/* =========================================================
+   INPUT NUMBER
+========================================================= */
+
+.installment-form .ant-input-number {
+  width: 100% !important;
+
+  min-height: 46px !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(125, 92, 255, 0.07),
+      rgba(255, 255, 255, 0.018)
+    ) !important;
+
+  border: 1px solid rgba(125, 92, 255, 0.22) !important;
+
+  border-radius: 13px !important;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.025) !important;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease !important;
+}
+
+.installment-form .ant-input-number-input {
+  height: 44px !important;
+
+  color: #070016 !important;
+
+  font-family: "Barlow", sans-serif !important;
+
+  font-size: 14px !important;
+}
+
+.installment-form
+  .ant-input-number-input::placeholder {
+  color: #625b70 !important;
+}
+
+.installment-form .ant-input-number:hover {
+  border-color: rgba(155, 130, 255, 0.45) !important;
+}
+
+.installment-form .ant-input-number-focused {
+  border-color: #7d5cff !important;
+
+  box-shadow:
+    0 0 0 3px rgba(125, 92, 255, 0.1),
+    0 0 28px rgba(125, 92, 255, 0.09) !important;
+}
+
+.installment-form
+  .ant-input-number-handler-wrap {
+  background: rgba(125, 92, 255, 0.06) !important;
+
+  border-left: 1px solid rgba(125, 92, 255, 0.12) !important;
+}
+
+.installment-form
+  .ant-input-number-handler {
+  border-color: rgba(125, 92, 255, 0.1) !important;
+}
+
+.installment-form
+  .ant-input-number-handler-up-inner,
+.installment-form
+  .ant-input-number-handler-down-inner {
+  color: #9b82ff !important;
+}
+
+/* =========================================================
+   DATE PICKER
+========================================================= */
+
+.installment-form .ant-picker {
+  width: 100% !important;
+
+  min-height: 46px !important;
+
+  padding: 0 14px !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(125, 92, 255, 0.07),
+      rgba(255, 255, 255, 0.018)
+    ) !important;
+
+  border: 1px solid rgba(125, 92, 255, 0.22) !important;
+
+  border-radius: 13px !important;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.025) !important;
+}
+
+.installment-form
+  .ant-picker-input
+  > input {
+  color: #130235 !important;
+
+  font-family: "Barlow", sans-serif !important;
+
+  font-size: 14px !important;
+}
+
+.installment-form
+  .ant-picker-input
+  > input::placeholder {
+  color: #625b70 !important;
+}
+
+.installment-form .ant-picker:hover {
+  border-color: rgba(155, 130, 255, 0.45) !important;
+}
+
+.installment-form .ant-picker-focused {
+  border-color: #7d5cff !important;
+
+  box-shadow:
+    0 0 0 3px rgba(125, 92, 255, 0.1),
+    0 0 28px rgba(125, 92, 255, 0.09) !important;
+}
+
+.installment-form .ant-picker-suffix {
+  color: #907fc2 !important;
+}
+
+/* =========================================================
+   SELECT
+========================================================= */
+
+.installment-form .ant-select {
+  width: 100% !important;
+}
+
+.installment-form .ant-select-selector {
+  min-height: 46px !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  padding: 0 14px !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(125, 92, 255, 0.07),
+      rgba(255, 255, 255, 0.018)
+    ) !important;
+
+  border: 1px solid rgba(125, 92, 255, 0.22) !important;
+
+  border-radius: 13px !important;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.025) !important;
+}
+
+.installment-form .ant-select-selection-item {
+  color: #100031 !important;
+
+  font-family: "Barlow", sans-serif !important;
+
+  font-size: 14px !important;
+}
+
+.installment-form
+  .ant-select-selection-placeholder {
+  color: #625b70 !important;
+}
+
+.installment-form .ant-select-arrow {
+  color: #907fc2 !important;
+}
+
+.installment-form
+  .ant-select:hover
+  .ant-select-selector {
+  border-color: rgba(155, 130, 255, 0.45) !important;
+}
+
+.installment-form
+  .ant-select-focused
+  .ant-select-selector {
+  border-color: #7d5cff !important;
+
+  box-shadow:
+    0 0 0 3px rgba(125, 92, 255, 0.1),
+    0 0 28px rgba(125, 92, 255, 0.09) !important;
+}
+
+/* =========================================================
+   TEXTAREA
+========================================================= */
+
+.installment-form textarea.ant-input {
+  min-height: 105px !important;
+
+  padding: 13px 14px !important;
+
+  line-height: 1.6;
+
+  resize: vertical;
+}
+
+/* =========================================================
+   VALIDATION
+========================================================= */
+
+.installment-form
+  .ant-form-item-has-error
+  .ant-input,
+.installment-form
+  .ant-form-item-has-error
+  .ant-input-number,
+.installment-form
+  .ant-form-item-has-error
+  .ant-picker,
+.installment-form
+  .ant-form-item-has-error
+  .ant-select-selector {
+  border-color: rgba(255, 95, 95, 0.42) !important;
+
+  background: rgba(255, 95, 95, 0.035) !important;
+
+  box-shadow: none !important;
+}
+
+.installment-form
+  .ant-form-item-explain-error {
+  margin-top: 5px;
+
+  color: #ff7777 !important;
+
+  font-family: "Barlow", sans-serif !important;
+
+  font-size: 10px !important;
+}
+
+/* =========================================================
+   DISABLED
+========================================================= */
+
+.installment-form .ant-input:disabled,
+.installment-form .ant-input-number-disabled,
+.installment-form .ant-picker-disabled {
+  color: #777080 !important;
+
+  background: rgba(255, 255, 255, 0.02) !important;
+
+  border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* =========================================================
+   FORM ACTIONS
+========================================================= */
+
+.installment-form-actions {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 9px;
+
+  margin-top: 25px;
+
+  padding-top: 22px;
+
+  border-top: 1px solid rgba(125, 92, 255, 0.1);
+}
+
+.installment-form-actions .ant-btn {
+  height: 44px !important;
+
+  padding: 0 21px !important;
+
+  border-radius: 999px !important;
+
+  font-family: "Barlow", sans-serif !important;
+
+  font-size: 12px !important;
+
+  font-weight: 500 !important;
+
+  transition: all 0.25s ease !important;
+}
+
+/* =========================================================
+   CANCEL BUTTON
+========================================================= */
+
+.installment-form-actions
+  .ant-btn-default {
+  color: #aaa3b5 !important;
+
+  background: rgba(255, 255, 255, 0.025) !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.installment-form-actions
+  .ant-btn-default:hover {
+  color: #ff7272 !important;
+
+  background: rgba(125, 92, 255, 0.07) !important;
+
+  border-color: rgba(125, 92, 255, 0.3) !important;
+
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   PRIMARY BUTTON
+========================================================= */
+
+.installment-form-actions
+  .ant-btn-primary {
+  color: #ffffff !important;
+
+  border: 1px solid rgba(170, 150, 255, 0.45) !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      #6745ed,
+      #8b6cff
+    ) !important;
+
+  box-shadow:
+    0 8px 28px rgba(125, 92, 255, 0.22) !important;
+}
+
+.installment-form-actions
+  .ant-btn-primary:hover {
+  color: #f2c8c8 !important;
+
+  border-color: #ad9aff !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7958f5,
+      #9b7fff
+    ) !important;
+
+  box-shadow:
+    0 12px 35px rgba(125, 92, 255, 0.35) !important;
+
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   SELECT DROPDOWN
+========================================================= */
+
+.ant-select-dropdown {
+  padding: 5px !important;
+
+  background: #0d0915 !important;
+
+  border: 1px solid rgba(125, 92, 255, 0.22) !important;
+
+  border-radius: 14px !important;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.7),
+    0 0 30px rgba(125, 92, 255, 0.08) !important;
+}
+
+.ant-select-item {
+  color: #aaa3b5 !important;
+
+  border-radius: 9px !important;
+
+  font-family: "Barlow", sans-serif !important;
+
+  font-size: 12px !important;
+}
+
+.ant-select-item-option-active {
+  color: #0d002e !important;
+
+  background: rgba(125, 92, 255, 0.08) !important;
+}
+
+.ant-select-item-option-selected {
+  color: #ffffff !important;
+
+  background: rgba(125, 92, 255, 0.15) !important;
+}
+
+/* =========================================================
+   DATE DROPDOWN
+========================================================= */
+
+.ant-picker-dropdown .ant-picker-panel-container {
+  overflow: hidden;
+
+  background: #0d0915 !important;
+
+  border: 1px solid rgba(125, 92, 255, 0.2) !important;
+
+  border-radius: 16px !important;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.7) !important;
+}
+
+.ant-picker-dropdown .ant-picker-header {
+  color: #4800ff !important;
+
+  border-bottom-color:
+    rgba(255, 255, 255, 0.06) !important;
+}
+
+.ant-picker-dropdown
+  .ant-picker-header
+  button {
+  color: #9b82ff !important;
+}
+
+.ant-picker-dropdown
+  .ant-picker-content
+  th {
+  color: #686273 !important;
+}
+
+.ant-picker-dropdown
+  .ant-picker-cell {
+  color: #777080 !important;
+}
+
+.ant-picker-dropdown
+  .ant-picker-cell-in-view {
+  color: #ddd7e8 !important;
+}
+
+.ant-picker-dropdown
+  .ant-picker-cell-selected
+  .ant-picker-cell-inner {
+  color: #ffffff !important;
+
+  background: #7d5cff !important;
+
+  border-radius: 8px !important;
+}
+
+.ant-picker-dropdown
+  .ant-picker-cell-today
+  .ant-picker-cell-inner::before {
+  border-color: #9b82ff !important;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+  .installments-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .installments-header-actions {
+    width: 100%;
+  }
+
+  .installment-card {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .installment-card-right {
+    width: 100%;
+
+    min-width: 0;
+
+    align-items: flex-start;
+  }
+
+  .installment-amount {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 1000px) {
+  .installment-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .installment-stat-card.balance {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 700px) {
+  .installments-page {
+    padding: 55px 16px;
+  }
+
+  .installments-header {
+    margin-bottom: 50px;
+  }
+
+  .installments-header h1 {
+    font-size: clamp(54px, 15vw, 76px);
+  }
+
+  .installments-header-actions {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .back-dashboard-btn,
+  .add-installment-btn {
+    width: 100%;
+  }
+
+  .installment-stats {
+    grid-template-columns: 1fr;
+
+    margin-bottom: 45px;
+  }
+
+  .installment-stat-card.balance {
+    grid-column: span 1;
+  }
+
+  .installments-toolbar {
+    align-items: stretch;
+
+    flex-direction: column;
+  }
+
+  .installment-tabs {
+    width: 100%;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+  }
+
+  .installment-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .installment-tab {
+    flex-shrink: 0;
+  }
+
+  .installment-search {
+    width: 100%;
+  }
+
+  .installment-title-row h3 {
+    white-space: normal;
+  }
+
+  .installment-form .form-grid {
+    grid-template-columns: 1fr;
+
+    gap: 0;
+  }
+
+  .installment-modal
+    .installment-modal-header {
+    padding: 27px 21px 18px;
+  }
+
+  .installment-modal
+    .installment-modal-header
+    h2 {
+    font-size: 32px;
+  }
+
+  .installment-form {
+    padding: 22px 21px 25px;
+  }
+
+  .ant-modal.installment-modal {
+    max-width: calc(100vw - 20px);
+  }
+
+  .ant-modal.installment-modal
+    .ant-modal-content {
+    border-radius: 21px !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .installment-card {
+    padding: 21px;
+  }
+
+  .installment-card-left {
+    gap: 13px;
+  }
+
+  .installment-icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .installment-title-row h3 {
+    max-width: 100%;
+
+    font-size: 25px;
+  }
+
+  .installment-meta {
+    gap: 8px 13px;
+  }
+
+  .installment-amount strong {
+    font-size: 34px;
+  }
+
+  .installment-actions {
+    width: 100%;
+  }
+
+  .installment-pay-btn,
+  .installment-edit-btn,
+  .installment-delete-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .installment-form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .installment-form-actions .ant-btn {
+    width: 100%;
+  }
+}
+

@@ -1,0 +1,13 @@
+.verify-code-input {
+  letter-spacing: 0.5em !important;
+  text-align: center !important;
+  font-weight: 700 !important;
+  font-size: 20px !important;
+}
+
+.verify-success {
+  color: #4ade80;
+  font-size: 13px;
+  text-align: center;
+  margin: 0;
+}
