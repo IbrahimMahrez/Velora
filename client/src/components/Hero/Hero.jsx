@@ -1,9 +1,11 @@
 import { motion } from "motion/react";
 import { ArrowRight, Play } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
+import { useNavigate } from "react-router-dom";
 
 function Hero() {
   const { t } = useLanguage();
+  const navigate = useNavigate();
   return (
     <section className="relative flex-1 flex items-center justify-center px-6">
       <div className="relative z-10 w-full max-w-5xl mx-auto text-center">
@@ -54,7 +56,10 @@ function Hero() {
           transition={{ duration: 0.7, delay: 0.5 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-9"
         >
-          <button className="group flex items-center gap-2 px-7 py-3 rounded-full bg-white text-black text-sm font-medium hover:bg-white/90 transition-all cursor-pointer">
+          <button 
+            onClick={() => navigate("/dashboard")}
+            className="group flex items-center gap-2 px-7 py-3 rounded-full bg-white text-black text-sm font-medium hover:bg-white/90 transition-all cursor-pointer"
+          >
             {t("hero.getStarted")}
             <ArrowRight
               size={16}
