@@ -218,7 +218,7 @@ MIT License — see [LICENSE](LICENSE) for details.
 ## 🌐 Links
 - **GitHub:** https://github.com/IbrahimMahrez
 - **LinkedIn:** https://www.linkedin.com/in/ibrahim-mohamed-haraz-95114a2ab/
-- **Live Demo:** [coming soon]
+- **Live Demo:** https://velora-24z.pages.dev/
 
 ---
 
